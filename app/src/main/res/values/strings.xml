@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">MerekeApp</string>
+    <string name="app_name" translatable="false">MerekeApp</string>
+    <string name="str_home">Главная</string>
+    <string name="str_catalog">Каталог</string>
+    <string name="str_create">Создать</string>
+    <string name="str_cart">Корзина</string>
+    <string name="str_profile">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
