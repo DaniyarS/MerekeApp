@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MerekeApp</string>
+    <string name="str_home">Басты</string>
+    <string name="str_catalog">Тізім</string>
+    <string name="str_create">Жасау</string>
+    <string name="str_cart">Қоржын</string>
+    <string name="str_profile">Жеке бет</string>
+</resources>
