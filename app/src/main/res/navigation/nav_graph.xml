@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.dslam.merekeapp.fragments.HomeFragment"
+        android:label="fragment_home" />
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="dev.dslam.merekeapp.fragments.CatalogFragment"
+        android:label="fragment_catalog" />
+
+    <fragment
+        android:id="@+id/createFragment"
+        android:name="dev.dslam.merekeapp.fragments.CreateFragment"
+        android:label="fragment_create" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="dev.dslam.merekeapp.fragments.CartFragment"
+        android:label="fragment_cart" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="dev.dslam.merekeapp.fragments.ProfileFragment"
+        android:label="fragment_profile" />
+
+</navigation>
