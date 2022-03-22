@@ -1,26 +1,30 @@
 package dev.dslam.merekeapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.dslam.merekeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.containerFragment) as NavHostFragment
 
         this.navController = navHostFragment.navController
 
-        findViewById<BottomNavigationView>(R.id.bottom_nav)
-            .setupWithNavController(this.navController)
+        binding.bottomNav.setupWithNavController(this.navController)
     }
+
+
+
 }
