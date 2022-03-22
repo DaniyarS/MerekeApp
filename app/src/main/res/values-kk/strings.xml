@@ -6,4 +6,8 @@
     <string name="str_create">Жасау</string>
     <string name="str_cart">Қоржын</string>
     <string name="str_profile">Жеке бет</string>
+    <string name="str_search">Іздеу…</string>
+    <string name="str_view_all">Бар. көру</string>
+    <string name="str_person_image">Адам кескіні</string>
+    <string name="str_rating_image">Рейтинг кескіні</string>
 </resources>

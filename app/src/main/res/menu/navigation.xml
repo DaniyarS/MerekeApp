@@ -12,11 +12,6 @@
         android:title="@string/str_catalog" />
 
     <item
-        android:id="@+id/createFragment"
-        android:icon="@drawable/ic_create"
-        android:title="@string/str_create" />
-
-    <item
         android:id="@+id/cartFragment"
         android:icon="@drawable/ic_cart"
         android:title="@string/str_cart" />
