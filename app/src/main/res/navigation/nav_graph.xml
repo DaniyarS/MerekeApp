@@ -15,11 +15,6 @@
         android:label="fragment_catalog" />
 
     <fragment
-        android:id="@+id/createFragment"
-        android:name="dev.dslam.merekeapp.fragments.CreateFragment"
-        android:label="fragment_create" />
-
-    <fragment
         android:id="@+id/cartFragment"
         android:name="dev.dslam.merekeapp.fragments.CartFragment"
         android:label="fragment_cart" />

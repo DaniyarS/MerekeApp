@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="172dp"
     android:layout_height="240dp"
-    app:cardBackgroundColor="#F5F5F7"
+    app:cardBackgroundColor="@color/gray_F5"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:mipmap/sym_def_app_icon" />
+            app:srcCompat="@android:mipmap/sym_def_app_icon"
+            android:contentDescription="@string/str_person_image" />
 
         <TextView
             android:id="@+id/productNameTextView"
@@ -54,6 +55,7 @@
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:src="@drawable/ic_baseline_star"
+            android:contentDescription="@string/str_rating_image"
             app:layout_constraintBottom_toBottomOf="@+id/ratingTextView"
             app:layout_constraintEnd_toStartOf="@+id/ratingTextView"
             app:layout_constraintTop_toTopOf="@+id/ratingTextView" />
