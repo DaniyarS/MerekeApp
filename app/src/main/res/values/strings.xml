@@ -5,6 +5,8 @@
     <string name="str_create">Создать</string>
     <string name="str_cart">Корзина</string>
     <string name="str_profile">Профиль</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_search">Поиск…</string>
+    <string name="str_view_all">См. все</string>
+    <string name="str_person_image">Изображение человека</string>
+    <string name="str_rating_image">Изображение рейтинга</string>
 </resources>
