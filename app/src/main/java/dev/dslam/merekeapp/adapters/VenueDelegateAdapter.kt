@@ -6,16 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.interfaces.Payloadable
-import dev.dslam.merekeapp.models.Singer
-import dev.dslam.merekeapp.models.adaptermodels.SingerItem
+import dev.dslam.merekeapp.models.Venue
+import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.utils.composeAdapter.DelegateAdapter
 
-class SingerDelegateAdapter(
-    private val viewClickListener: (Singer) -> Unit
-) : DelegateAdapter<SingerItem, SingerDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
+class VenueDelegateAdapter(
+    private val viewClickListener: (Venue) -> Unit
+) : DelegateAdapter<VenueItem, VenueDelegateAdapter.VenueItemViewHolder>(VenueItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
-        SingerItemViewHolder(
+        VenueItemViewHolder(
             PersonListItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -23,28 +23,29 @@ class SingerDelegateAdapter(
             )
         )
 
+
     override fun bindViewHolder(
-        model: SingerItem,
-        viewHolder: SingerDelegateAdapter.SingerItemViewHolder,
+        model: VenueItem,
+        viewHolder: VenueDelegateAdapter.VenueItemViewHolder,
         payloads: List<Payloadable>
     ) {
         viewHolder.bind(model)
     }
 
-    inner class SingerItemViewHolder(private val binding: PersonListItemBinding) :
+    inner class VenueItemViewHolder(private val binding: PersonListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: SingerItem) {
-            binding.productNameTextView.text = item.singer.name
-            binding.ratingTextView.text = item.singer.rating.toString()
-            binding.productAddressTextview.text = item.singer.description
+        fun bind(item: VenueItem) {
+            binding.productNameTextView.text = item.venue.name
+            binding.ratingTextView.text = item.venue.rating.toString()
+            binding.productAddressTextview.text = item.venue.description
 
             binding.root.setOnClickListener {
-                viewClickListener(item.singer)
+                viewClickListener(item.venue)
             }
 
             Glide
                 .with(binding.root)
-                .load(item.singer.image)
+                .load(item.venue.image)
                 .centerCrop()
                 .into(binding.productImageView)
         }

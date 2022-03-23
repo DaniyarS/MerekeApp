@@ -11,8 +11,7 @@ import dev.dslam.merekeapp.utils.composeAdapter.DelegateAdapter
 
 class CategoryDelegateAdapter(
     private val viewAllClickListener: (Category) -> Unit
-) :
-    DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
+) : DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
         CategoryItemViewHolder(
@@ -22,7 +21,6 @@ class CategoryDelegateAdapter(
                 false
             )
         )
-
 
     override fun bindViewHolder(
         model: CategoryItem,
