@@ -15,7 +15,8 @@ class HomeFragmentViewModel(private val appRepository: AppRepository) : ViewMode
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val venueList = appRepository.newVenueList
+    val newVenueList = appRepository.newVenueList
+    val newSingersList = appRepository.newSingerList
 
     init {
         fetchData()

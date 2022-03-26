@@ -1,6 +1,6 @@
 package dev.dslam.merekeapp.models.adaptermodels
 
-import dev.dslam.merekeapp.interfaces.DelegateAdapterItem
+import dev.dslam.merekeapp.adapters.composeAdapter.DelegateAdapterItem
 import dev.dslam.merekeapp.models.Category
 
 data class CategoryItem(

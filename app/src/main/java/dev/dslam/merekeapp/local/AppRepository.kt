@@ -7,10 +7,12 @@ import kotlinx.coroutines.withContext
 class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: MerekeDao) {
 
     val newVenueList = merekeDao.getNewVenues()
+    val newSingerList = merekeDao.getNewSingers()
 
     suspend fun refresh() {
         withContext(Dispatchers.IO) {
             val newVenueList = merekeApi.getNewVenues()
+            val newSingerList = merekeApi.getNewSingers()
         }
     }
 

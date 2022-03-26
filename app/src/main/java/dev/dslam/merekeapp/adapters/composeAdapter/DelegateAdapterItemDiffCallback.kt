@@ -1,8 +1,7 @@
-package dev.dslam.merekeapp.utils.composeAdapter
+package dev.dslam.merekeapp.adapters.composeAdapter
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import dev.dslam.merekeapp.interfaces.DelegateAdapterItem
 
 internal class DelegateAdapterItemDiffCallback : DiffUtil.ItemCallback<DelegateAdapterItem>() {
     override fun areItemsTheSame(
