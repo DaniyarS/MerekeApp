@@ -1,18 +1,17 @@
-package dev.dslam.merekeapp.adapters
+package dev.dslam.merekeapp.adapters.delegateAdapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.databinding.CategoryListItemBinding
-import dev.dslam.merekeapp.interfaces.Payloadable
+import dev.dslam.merekeapp.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.Category
 import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
-import dev.dslam.merekeapp.utils.composeAdapter.DelegateAdapter
+import dev.dslam.merekeapp.adapters.composeAdapter.DelegateAdapter
 
 class CategoryDelegateAdapter(
     private val viewAllClickListener: (Category) -> Unit
-) :
-    DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
+) : DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
         CategoryItemViewHolder(
@@ -23,10 +22,9 @@ class CategoryDelegateAdapter(
             )
         )
 
-
     override fun bindViewHolder(
         model: CategoryItem,
-        viewHolder: CategoryDelegateAdapter.CategoryItemViewHolder,
+        viewHolder: CategoryItemViewHolder,
         payloads: List<Payloadable>
     ) {
         viewHolder.bind(model)

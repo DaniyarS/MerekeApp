@@ -1,11 +1,9 @@
-package dev.dslam.merekeapp.utils.composeAdapter
+package dev.dslam.merekeapp.adapters.composeAdapter
 
 import android.util.SparseArray
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import dev.dslam.merekeapp.interfaces.DelegateAdapterItem
-import dev.dslam.merekeapp.interfaces.Payloadable
 
 class CompositeAdapter(
     private val delegates: SparseArray<DelegateAdapter<DelegateAdapterItem, RecyclerView.ViewHolder>>
