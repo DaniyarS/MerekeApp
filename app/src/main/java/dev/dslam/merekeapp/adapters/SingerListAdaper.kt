@@ -23,7 +23,7 @@ class SingerListAdapter(
     inner class PersonViewHolder(private val binding: PersonListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(singer: Singer) {
             binding.productNameTextView.text = singer.name
-            //binding.ratingTextView.text = singer.rating.toString()
+            // binding.ratingTextView.text = singer.rating.toString()
             binding.productAddressTextview.text = singer.description
 
             binding.root.setOnClickListener {

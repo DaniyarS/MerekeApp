@@ -1,11 +1,12 @@
 package dev.dslam.merekeapp.fragments
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.adapters.delegateAdapters.CategoryDelegateAdapter
 import dev.dslam.merekeapp.adapters.delegateAdapters.SingerDelegateAdapter
@@ -28,6 +29,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         get() = _binding!!
 
     private val homeFragmentViewModel by viewModel<HomeFragmentViewModel>()
+
+    private val list: MutableList<DelegateAdapterItem> = mutableListOf()
 
     private val categoryDelegateAdapter by lazy {
         CategoryDelegateAdapter(
@@ -62,16 +65,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             .build()
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val llm = LinearLayoutManager(requireContext())
-        llm.orientation = LinearLayoutManager.VERTICAL
-        val rv =  view.findViewById<RecyclerView>(R.id.homeFragmentList)
-        rv.adapter = compositeAdapter
-        rv.layoutManager = llm
-
-        val list: MutableList<DelegateAdapterItem> = mutableListOf()
+        with(binding) {
+            homeFragmentList.apply {
+                layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                adapter = compositeAdapter
+            }
+        }
 
         observeNewProducts(list)
 
@@ -84,6 +91,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun observeNewProducts(list: MutableList<DelegateAdapterItem>) {
@@ -101,7 +113,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 val categoryItem = CategoryItem(Category(2, "Новые артисты"))
                 list.add(categoryItem)
                 list.add(SingerItem(singerList))
-
             }
         })
     }

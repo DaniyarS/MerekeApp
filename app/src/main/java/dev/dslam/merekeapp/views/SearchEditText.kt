@@ -123,5 +123,4 @@ class SearchEditText
         fun onQueryTextChange(newText: String?)
 
     }
-
 }

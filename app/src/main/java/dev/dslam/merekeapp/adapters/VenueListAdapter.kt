@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.adapters.diffUtils.VenueDiffUtilCallback
-import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.databinding.VenueListItemBinding
 import dev.dslam.merekeapp.models.Venue
 
@@ -24,7 +23,7 @@ class VenueListAdapter(
     inner class VenueViewHolder(private val binding: VenueListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(venue: Venue) {
             binding.productNameTextView.text = venue.name
-            //binding.ratingTextView.text = venue.rating.toString()
+            // binding.ratingTextView.text = venue.rating.toString()
             binding.productAddressTextview.text = venue.description
 
             binding.root.setOnClickListener {
