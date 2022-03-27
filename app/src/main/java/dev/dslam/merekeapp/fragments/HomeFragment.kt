@@ -1,5 +1,6 @@
 package dev.dslam.merekeapp.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,6 +19,8 @@ import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.adapters.composeAdapter.CompositeAdapter
 import dev.dslam.merekeapp.databinding.FragmentHomeBinding
+import dev.dslam.merekeapp.models.Singer
+import dev.dslam.merekeapp.models.Venue
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.viewModels.HomeFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,7 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val categoryDelegateAdapter by lazy {
         CategoryDelegateAdapter(
             viewAllClickListener = {
-
+                listener.onViewAllClicked(it)
             }
         )
     }
@@ -43,7 +46,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val singerDelegateAdapter by lazy {
         SingerDelegateAdapter(
             singerClickListener = {
-
+                listener.onSingerSelected(it)
             }
         )
     }
@@ -51,7 +54,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val venueDelegateAdapter by lazy {
         VenueDelegateAdapter(
             venueClickListener = {
-
+                listener.onVenueSelected(it)
             }
         )
     }
@@ -65,7 +68,20 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             .build()
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    private lateinit var listener: OnItemSelected
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnItemSelected) {
+            listener = context
+        } else {
+            throw ClassCastException(
+                "$context must implement OnItemSelected."
+            )
+        }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -104,7 +120,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 val categoryItem = CategoryItem(Category(0, "Новые заведения"))
                 list.add(categoryItem)
                 list.add(VenueItem(venueList))
-
             }
         })
 
@@ -115,5 +130,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 list.add(SingerItem(singerList))
             }
         })
+    }
+
+    interface OnItemSelected {
+        fun onSingerSelected(singer: Singer)
+        fun onVenueSelected(venue: Venue)
+        fun onViewAllClicked(category: Category)
     }
 }

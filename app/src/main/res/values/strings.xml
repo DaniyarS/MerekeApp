@@ -7,6 +7,13 @@
     <string name="str_profile">Профиль</string>
     <string name="str_search">Поиск…</string>
     <string name="str_view_all">См. все</string>
-    <string name="str_person_image">Изображение человека</string>
-    <string name="str_rating_image">Изображение рейтинга</string>
+    <string name="str_person_image" translatable="false">person image</string>
+    <string name="str_rating_image" translatable="false">rating image</string>
+    <string name="str_back_button" translatable="false">back button</string>
+    <string name="str_product_image" translatable="false">Изображение сущности</string>
+
+    <!--ERRORS-->
+
+    <string name="str_no_data_loaded">Не удалось прогрузить данные</string>
+
 </resources>

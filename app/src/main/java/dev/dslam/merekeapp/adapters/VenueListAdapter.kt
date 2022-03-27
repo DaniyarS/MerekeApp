@@ -32,7 +32,7 @@ class VenueListAdapter(
 
             Glide
                 .with(binding.root)
-                .load(venue.image)
+                .load(venue.images[0].imageUrl)
                 .centerCrop()
                 .into(binding.productImageView)
         }
