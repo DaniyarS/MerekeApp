@@ -1,8 +1,7 @@
-package dev.dslam.merekeapp.utils.composeAdapter
+package dev.dslam.merekeapp.adapters.composeAdapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import dev.dslam.merekeapp.interfaces.Payloadable
 
 abstract class DelegateAdapter<M, in VH : RecyclerView.ViewHolder>(val modelClass: Class<out M>) {
 
