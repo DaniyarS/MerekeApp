@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.dslam.merekeapp.databinding.ActivityMainBinding
 import dev.dslam.merekeapp.fragments.HomeFragment
+import dev.dslam.merekeapp.fragments.constants.Constants
 import dev.dslam.merekeapp.fragments.details.SingerDetailsFragment
 import dev.dslam.merekeapp.fragments.details.VenueDetailsFragment
 import dev.dslam.merekeapp.models.Category
@@ -48,13 +49,13 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnItemSelected {
         pushFragment(mainContainerFragment, venueDetailsFragment, "venueDetails")
     }
 
-    override fun onViewAllClicked(category: Category) {
-        val bundle = bundleOf("CATEGORY_ID" to category.id)
+    override fun onViewAllClicked(categoryId: Int) {
+        val bundle = bundleOf(Constants.CATEGORY_ID to categoryId)
 
         val navOptions = NavOptions.Builder()
             .setPopUpTo(R.id.homeFragment, inclusive = false, saveState = true)
             .setRestoreState(true)
-            .build();
+            .build()
 
         navController.navigate(R.id.catalogFragment, bundle, navOptions)
     }

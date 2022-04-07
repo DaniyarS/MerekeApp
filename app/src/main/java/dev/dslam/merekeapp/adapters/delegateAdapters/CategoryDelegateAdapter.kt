@@ -2,15 +2,19 @@ package dev.dslam.merekeapp.adapters.delegateAdapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.CategoryListItemBinding
 import dev.dslam.merekeapp.adapters.composeAdapter.Payloadable
-import dev.dslam.merekeapp.models.Category
 import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.adapters.composeAdapter.DelegateAdapter
+import dev.dslam.merekeapp.fragments.constants.Constants
 
 class CategoryDelegateAdapter(
-    private val viewAllClickListener: (Category) -> Unit
+    private val viewAllClickListener: (Int) -> Unit
 ) : DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
@@ -35,7 +39,15 @@ class CategoryDelegateAdapter(
         fun bind(item: CategoryItem) {
             binding.categoryName.text = item.category.name
             binding.viewAllText.setOnClickListener {
-                viewAllClickListener(item.category)
+                //viewAllClickListener(item.category.id)
+                val bundle = bundleOf(Constants.CATEGORY_ID to item.category.id)
+
+                val navOptions = NavOptions.Builder()
+                    .setPopUpTo(R.id.homeFragment, inclusive = false, saveState = true)
+                    .setRestoreState(true)
+                    .build()
+
+                itemView.findNavController().navigate(R.id.catalogFragment, bundle, navOptions)
             }
         }
     }

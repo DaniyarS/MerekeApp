@@ -137,6 +137,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     interface OnItemSelected {
         fun onSingerSelected(singer: Singer)
         fun onVenueSelected(venue: Venue)
-        fun onViewAllClicked(category: Category)
+        fun onViewAllClicked(categoryId: Int)
     }
 }
