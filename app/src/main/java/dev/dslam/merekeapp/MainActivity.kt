@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -49,7 +50,13 @@ class MainActivity : AppCompatActivity(), HomeFragment.OnItemSelected {
 
     override fun onViewAllClicked(category: Category) {
         val bundle = bundleOf("CATEGORY_ID" to category.id)
-        navController.navigate(R.id.catalogFragment, bundle)
+
+        val navOptions = NavOptions.Builder()
+            .setPopUpTo(R.id.homeFragment, inclusive = false, saveState = true)
+            .setRestoreState(true)
+            .build();
+
+        navController.navigate(R.id.catalogFragment, bundle, navOptions)
     }
 
     private fun pushFragment(fragmentFrom: Int, fragmentTo: Fragment, key: String) {
