@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.fragments
+package dev.dslam.merekeapp.presentation.fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -22,7 +22,7 @@ import dev.dslam.merekeapp.databinding.FragmentHomeBinding
 import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.models.Venue
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
-import dev.dslam.merekeapp.viewModels.HomeFragmentViewModel
+import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -35,13 +35,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val list: MutableList<DelegateAdapterItem> = mutableListOf()
 
-    private val categoryDelegateAdapter by lazy {
-        CategoryDelegateAdapter(
-            viewAllClickListener = {
-                listener.onViewAllClicked(it)
-            }
-        )
-    }
+    private val categoryDelegateAdapter = CategoryDelegateAdapter()
 
     private val singerDelegateAdapter by lazy {
         SingerDelegateAdapter(

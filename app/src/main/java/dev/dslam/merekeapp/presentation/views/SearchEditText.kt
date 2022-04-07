@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.views
+package dev.dslam.merekeapp.presentation.views
 
 import android.content.Context
 import android.text.InputType

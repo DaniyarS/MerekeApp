@@ -6,22 +6,32 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.dslam.merekeapp.fragments.HomeFragment"
-        android:label="fragment_home" />
+        android:name="dev.dslam.merekeapp.presentation.fragments.HomeFragment"
+        android:label="fragment_home">
+
+        <action
+            app:destination="@id/venueDetailsActivity"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="dev.dslam.merekeapp.fragments.CatalogFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.CatalogFragment"
         android:label="fragment_catalog" />
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="dev.dslam.merekeapp.fragments.CartFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.CartFragment"
         android:label="fragment_cart" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="dev.dslam.merekeapp.fragments.ProfileFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.ProfileFragment"
         android:label="fragment_profile" />
+
+    <activity
+        android:id="@+id/venueDetailsActivity"
+        android:name="dev.dslam.merekeapp.presentation.activities.VenueDetailsActivity"
+        android:label="activity_venue_details" />
 
 </navigation>

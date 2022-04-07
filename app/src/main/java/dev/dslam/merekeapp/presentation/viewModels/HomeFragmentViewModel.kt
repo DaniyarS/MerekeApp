@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.viewModels
+package dev.dslam.merekeapp.presentation.viewModels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

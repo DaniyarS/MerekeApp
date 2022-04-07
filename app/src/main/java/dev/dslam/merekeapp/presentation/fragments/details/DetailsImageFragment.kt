@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.fragments.details
+package dev.dslam.merekeapp.presentation.fragments.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

@@ -10,11 +10,10 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.dslam.merekeapp.databinding.ActivityMainBinding
-import dev.dslam.merekeapp.fragments.HomeFragment
-import dev.dslam.merekeapp.fragments.constants.Constants
-import dev.dslam.merekeapp.fragments.details.SingerDetailsFragment
-import dev.dslam.merekeapp.fragments.details.VenueDetailsFragment
-import dev.dslam.merekeapp.models.Category
+import dev.dslam.merekeapp.presentation.fragments.HomeFragment
+import dev.dslam.merekeapp.presentation.fragments.constants.Constants
+import dev.dslam.merekeapp.presentation.fragments.details.SingerDetailsFragment
+import dev.dslam.merekeapp.presentation.fragments.details.VenueDetailsFragment
 import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.models.Venue
 
