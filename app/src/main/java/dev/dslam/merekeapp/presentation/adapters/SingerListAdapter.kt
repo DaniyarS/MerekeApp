@@ -1,11 +1,11 @@
-package dev.dslam.merekeapp.adapters
+package dev.dslam.merekeapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import dev.dslam.merekeapp.adapters.diffUtils.SingerDiffUtilCallback
+import dev.dslam.merekeapp.presentation.adapters.diffUtils.SingerDiffUtilCallback
 import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.models.Singer
 

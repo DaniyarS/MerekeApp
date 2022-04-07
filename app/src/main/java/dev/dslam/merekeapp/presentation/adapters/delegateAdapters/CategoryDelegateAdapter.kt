@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.adapters.delegateAdapters
+package dev.dslam.merekeapp.presentation.adapters.delegateAdapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,9 +8,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.CategoryListItemBinding
-import dev.dslam.merekeapp.adapters.composeAdapter.Payloadable
+import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
-import dev.dslam.merekeapp.adapters.composeAdapter.DelegateAdapter
+import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
 import dev.dslam.merekeapp.presentation.fragments.constants.Constants
 
 class CategoryDelegateAdapter :

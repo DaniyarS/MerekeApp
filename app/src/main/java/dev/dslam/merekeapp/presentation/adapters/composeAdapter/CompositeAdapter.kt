@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.adapters.composeAdapter
+package dev.dslam.merekeapp.presentation.adapters.composeAdapter
 
 import android.util.SparseArray
 import android.view.ViewGroup

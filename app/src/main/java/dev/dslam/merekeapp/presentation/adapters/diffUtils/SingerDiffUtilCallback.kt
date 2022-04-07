@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.adapters.diffUtils
+package dev.dslam.merekeapp.presentation.adapters.diffUtils
 
 import androidx.recyclerview.widget.DiffUtil
 import dev.dslam.merekeapp.models.Singer

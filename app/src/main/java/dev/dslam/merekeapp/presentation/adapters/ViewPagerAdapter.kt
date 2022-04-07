@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.adapters
+package dev.dslam.merekeapp.presentation.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

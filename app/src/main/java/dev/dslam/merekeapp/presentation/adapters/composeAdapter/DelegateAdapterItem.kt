@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.adapters.composeAdapter
+package dev.dslam.merekeapp.presentation.adapters.composeAdapter
 
 interface DelegateAdapterItem {
 

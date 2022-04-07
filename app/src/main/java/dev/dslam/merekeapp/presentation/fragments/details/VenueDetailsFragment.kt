@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import dev.dslam.merekeapp.R
-import dev.dslam.merekeapp.adapters.ViewPagerAdapter
+import dev.dslam.merekeapp.presentation.adapters.ViewPagerAdapter
 import dev.dslam.merekeapp.databinding.FragmentVenueDetailsBinding
 import dev.dslam.merekeapp.models.Venue
 
