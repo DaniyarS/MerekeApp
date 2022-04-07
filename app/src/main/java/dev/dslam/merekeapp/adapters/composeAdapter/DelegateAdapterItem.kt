@@ -1,7 +1,5 @@
 package dev.dslam.merekeapp.adapters.composeAdapter
 
-import dev.dslam.merekeapp.adapters.composeAdapter.Payloadable
-
 interface DelegateAdapterItem {
 
     fun id(): Any

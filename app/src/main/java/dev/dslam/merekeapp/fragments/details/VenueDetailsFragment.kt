@@ -30,7 +30,7 @@ class VenueDetailsFragment : Fragment(R.layout.fragment_venue_details) {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentVenueDetailsBinding.inflate(inflater)
         return binding.root
     }
@@ -41,7 +41,7 @@ class VenueDetailsFragment : Fragment(R.layout.fragment_venue_details) {
         val viewPagerAdapter = activity?.supportFragmentManager?.let { ViewPagerAdapter(it) }
 
         if (arguments != null) {
-            val venueModel = arguments!!.getParcelable<Venue>(VENUE_MODEL)
+            val venueModel = requireArguments().getParcelable<Venue>(VENUE_MODEL)
             venueModel?.images?.let { viewPagerAdapter?.setImages(it) }
             binding.productImageViewPager.adapter = viewPagerAdapter
             binding.tabLayout.setupWithViewPager(binding.productImageViewPager)

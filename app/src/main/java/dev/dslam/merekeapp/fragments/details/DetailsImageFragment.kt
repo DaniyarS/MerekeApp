@@ -40,7 +40,7 @@ class DetailsImageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (arguments != null) {
-            val image = arguments!!.getParcelable<Image>(IMAGE)
+            val image = requireArguments().getParcelable<Image>(IMAGE)
 
             if (image != null) {
                 Glide

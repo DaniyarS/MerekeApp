@@ -100,13 +100,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         compositeAdapter.submitList(list)
 
-        homeFragmentViewModel.loadingState.observe(this, {
-            when(it.status) {
+        homeFragmentViewModel.loadingState.observe(viewLifecycleOwner) {
+            when (it.status) {
                 Status.FAILED -> Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
-                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT).show()
-                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT).show()
+                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
+                    .show()
+                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
+                    .show()
             }
-        })
+        }
     }
 
     override fun onDestroyView() {
@@ -115,21 +117,21 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun observeNewProducts(list: MutableList<DelegateAdapterItem>) {
-        homeFragmentViewModel.newVenueList.observe(this, { venueList ->
+        homeFragmentViewModel.newVenueList.observe(viewLifecycleOwner) { venueList ->
             if (venueList != null) {
                 val categoryItem = CategoryItem(Category(0, "Новые заведения"))
                 list.add(categoryItem)
                 list.add(VenueItem(venueList))
             }
-        })
+        }
 
-        homeFragmentViewModel.newSingersList.observe(this, { singerList ->
+        homeFragmentViewModel.newSingersList.observe(viewLifecycleOwner) { singerList ->
             if (singerList != null) {
                 val categoryItem = CategoryItem(Category(2, "Новые артисты"))
                 list.add(categoryItem)
                 list.add(SingerItem(singerList))
             }
-        })
+        }
     }
 
     interface OnItemSelected {
