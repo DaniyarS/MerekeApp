@@ -9,7 +9,7 @@ import dev.dslam.merekeapp.local.AppDatabase
 import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.local.MerekeDao
 import dev.dslam.merekeapp.network.MerekeApi
-import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
+import dev.dslam.merekeapp.viewModels.HomeFragmentViewModel
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
