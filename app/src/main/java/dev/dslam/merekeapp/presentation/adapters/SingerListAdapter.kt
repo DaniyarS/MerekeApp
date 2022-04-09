@@ -2,16 +2,16 @@ package dev.dslam.merekeapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.SingerDiffUtilCallback
 import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.models.Singer
+import dev.dslam.merekeapp.presentation.fragments.HomeFragmentDirections
 
-class SingerListAdapter(
-    private val viewClickListener: (Singer) -> Unit
-) : ListAdapter<Singer, SingerListAdapter.PersonViewHolder>(SingerDiffUtilCallback()) {
+class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder>(SingerDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder =
         PersonViewHolder(
@@ -27,12 +27,13 @@ class SingerListAdapter(
             binding.productAddressTextview.text = singer.description
 
             binding.root.setOnClickListener {
-                viewClickListener(singer)
+                val action = HomeFragmentDirections.actionHomeFragmentToPersonDetailsActivity(person = singer)
+                itemView.findNavController().navigate(action)
             }
 
             Glide
                 .with(binding.root)
-                .load(singer.image)
+                .load(singer.images[0].imageUrl)
                 .centerCrop()
                 .into(binding.productImageView)
         }

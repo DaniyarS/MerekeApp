@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.presentation.adapters.SingerListAdapter
 import dev.dslam.merekeapp.databinding.VerticalListItemBinding
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
-import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
 
-class SingerDelegateAdapter(
-    private val singerClickListener: (Singer) -> Unit
-) : DelegateAdapter<SingerItem, SingerDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
+class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
         SingerItemViewHolder(
@@ -36,13 +33,7 @@ class SingerDelegateAdapter(
     inner class SingerItemViewHolder(private val binding: VerticalListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val singerListAdapter by lazy {
-            SingerListAdapter(
-                viewClickListener = {
-                    singerClickListener(it)
-                }
-            )
-        }
+        private val singerListAdapter = SingerListAdapter()
 
         fun bind(item: SingerItem) {
             with(binding) {

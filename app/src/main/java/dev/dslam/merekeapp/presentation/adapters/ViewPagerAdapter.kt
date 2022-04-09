@@ -3,7 +3,7 @@ package dev.dslam.merekeapp.presentation.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import dev.dslam.merekeapp.presentation.fragments.details.DetailsImageFragment
+import dev.dslam.merekeapp.presentation.fragments.DetailsImageFragment
 import dev.dslam.merekeapp.models.Image
 
 class ViewPagerAdapter(fm: FragmentManager)

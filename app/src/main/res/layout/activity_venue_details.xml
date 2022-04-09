@@ -1,9 +1,332 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.activities.VenueDetailsActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="1dp">
+
+                <ImageButton
+                    android:id="@+id/backButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/shape_circle"
+                    android:contentDescription="@string/str_back_button"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/shareButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_circle"
+                    android:contentDescription="@string/str_back_button"
+                    android:src="@drawable/ic_share"
+                    app:layout_constraintEnd_toStartOf="@+id/saveButton"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="RtlHardcoded" />
+
+                <ImageButton
+                    android:id="@+id/saveButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_circle"
+                    android:contentDescription="@string/str_back_button"
+                    android:src="@drawable/ic_favorite_star"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/backButton" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/productImageViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="360dp">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@color/tab_bg"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
+
+            </androidx.viewpager.widget.ViewPager>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <TextView
+            android:id="@+id/venueName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/carbon_gray"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout2"
+            tools:text="Rock Crystal" />
+
+        <TextView
+            android:id="@+id/about"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/carbon_gray"
+            android:textSize="16sp"
+            android:text="@string/str_about"
+            app:layout_constraintEnd_toEndOf="@+id/venueName"
+            app:layout_constraintStart_toStartOf="@+id/venueName"
+            app:layout_constraintTop_toBottomOf="@+id/venueName" />
+
+        <TextView
+            android:id="@+id/venueDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintEnd_toEndOf="@+id/venueName"
+            app:layout_constraintStart_toStartOf="@+id/venueName"
+            app:layout_constraintTop_toBottomOf="@+id/about"
+            tools:text="Светлый и просторный зал на 120 человек для проведения юбилеев, Асянди (годики) и Хангаби, Сундет той, Тусау кесу, свадеб, выпускных, корпоративных вечеров и других мероприятий." />
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/str_venue_information"
+            android:textColor="@color/carbon_gray"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/venueDescription"
+            app:layout_constraintStart_toStartOf="@+id/venueDescription"
+            app:layout_constraintTop_toBottomOf="@+id/venueDescription" />
+
+        <TextView
+            android:id="@+id/kitchenLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_kitchen"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/information"
+            app:layout_constraintTop_toBottomOf="@+id/information" />
+
+        <TextView
+            android:id="@+id/averagePriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_average_price"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/kitchenLabel"
+            app:layout_constraintTop_toBottomOf="@+id/kitchenLabel" />
+
+        <TextView
+            android:id="@+id/placeQuantityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_place_quantity_label"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/averagePriceLabel"
+            app:layout_constraintTop_toBottomOf="@+id/averagePriceLabel" />
+
+        <TextView
+            android:id="@+id/workingTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_working_time_label"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/placeQuantityLabel"
+            app:layout_constraintTop_toBottomOf="@+id/placeQuantityLabel" />
+
+        <TextView
+            android:id="@+id/kitchen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/kitchenLabel"
+            app:layout_constraintEnd_toEndOf="@+id/information"
+            app:layout_constraintTop_toTopOf="@+id/kitchenLabel"
+            tools:text="Корейская, японская, казахская" />
+
+        <TextView
+            android:id="@+id/averageCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/averagePriceLabel"
+            app:layout_constraintEnd_toEndOf="@+id/information"
+            app:layout_constraintTop_toTopOf="@+id/averagePriceLabel"
+            tools:text="9000–12000 тенге на человека" />
+
+        <TextView
+            android:id="@+id/placeQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/placeQuantityLabel"
+            app:layout_constraintEnd_toEndOf="@+id/information"
+            app:layout_constraintTop_toTopOf="@+id/placeQuantityLabel"
+            tools:text="120" />
+
+        <TextView
+            android:id="@+id/workingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/workingTimeLabel"
+            app:layout_constraintEnd_toEndOf="@+id/information"
+            app:layout_constraintTop_toTopOf="@+id/workingTimeLabel"
+            tools:text="13:00–00:00, без выходных" />
+
+        <TextView
+            android:id="@+id/venueAddressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/str_address_label"
+            android:textColor="@color/carbon_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/workingTimeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/workingTimeLabel" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/workingTimeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/venueAddressLabel"
+            tools:text="пр. Гагарина, 2, уг. ул. Толе би" />
+
+        <TextView
+            android:id="@+id/extraFeaturesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/str_extra_features"
+            android:textColor="@color/carbon_gray"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/workingTimeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/address" />
+
+        <TextView
+            android:id="@+id/smokingAreaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_smoke_area"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/extraFeaturesLabel"
+            app:layout_constraintTop_toBottomOf="@+id/extraFeaturesLabel" />
+
+        <TextView
+            android:id="@+id/KaraokeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_karaoke"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/smokingAreaLabel"
+            app:layout_constraintTop_toBottomOf="@+id/smokingAreaLabel" />
+
+        <TextView
+            android:id="@+id/parkingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/str_parking"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintStart_toStartOf="@+id/KaraokeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/KaraokeLabel" />
+
+        <TextView
+            android:id="@+id/smokingArea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/smokingAreaLabel"
+            app:layout_constraintEnd_toEndOf="@+id/workingTime"
+            app:layout_constraintTop_toTopOf="@+id/smokingAreaLabel"
+            tools:text="Есть" />
+
+        <TextView
+            android:id="@+id/karaoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/KaraokeLabel"
+            app:layout_constraintEnd_toEndOf="@+id/smokingArea"
+            app:layout_constraintTop_toTopOf="@+id/KaraokeLabel"
+            tools:text="Есть" />
+
+        <TextView
+            android:id="@+id/parking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/carbon_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/parkingLabel"
+            app:layout_constraintEnd_toEndOf="@+id/karaoke"
+            app:layout_constraintTop_toTopOf="@+id/parkingLabel"
+            tools:text="неохраняемая, бесплатная" />
+
+        <FrameLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:elevation="10dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parkingLabel">
+
+            <Button
+                android:id="@+id/addToCartButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/str_add_to_cart" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

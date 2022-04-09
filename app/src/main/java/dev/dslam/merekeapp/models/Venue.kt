@@ -5,7 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import dev.dslam.merekeapp.models.typeConverters.ImageToString
-import kotlinx.android.parcel.Parcelize
+import dev.dslam.merekeapp.models.typeConverters.VenueExtraFeatureToString
+import dev.dslam.merekeapp.models.typeConverters.VenueInformationToString
+import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "venues")
 @Parcelize
@@ -17,5 +19,9 @@ data class Venue(
     val rating: Float,
     val address: String,
     @TypeConverters(ImageToString::class)
-    val images: List<Image>
-): Parcelable
+    val images: List<Image>,
+    @TypeConverters(VenueInformationToString::class)
+    val information: VenueInformation,
+    @TypeConverters(VenueExtraFeatureToString::class)
+    val extraFeatures: VenueExtraFeature
+) : Parcelable

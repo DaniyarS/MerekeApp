@@ -2,16 +2,16 @@ package dev.dslam.merekeapp.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.VenueDiffUtilCallback
 import dev.dslam.merekeapp.databinding.VenueListItemBinding
 import dev.dslam.merekeapp.models.Venue
+import dev.dslam.merekeapp.presentation.fragments.HomeFragmentDirections
 
-class VenueListAdapter(
-    private val viewClickListener: (Venue) -> Unit
-) : ListAdapter<Venue, VenueListAdapter.VenueViewHolder>(VenueDiffUtilCallback()) {
+class VenueListAdapter: ListAdapter<Venue, VenueListAdapter.VenueViewHolder>(VenueDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VenueViewHolder =
         VenueViewHolder(
@@ -27,7 +27,8 @@ class VenueListAdapter(
             binding.productAddressTextview.text = venue.description
 
             binding.root.setOnClickListener {
-                viewClickListener(venue)
+                val action = HomeFragmentDirections.actionHomeFragmentToVenueDetailsActivity(venue = venue)
+                itemView.findNavController().navigate(action)
             }
 
             Glide

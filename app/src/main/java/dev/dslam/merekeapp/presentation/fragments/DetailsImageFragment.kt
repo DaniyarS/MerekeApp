@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.presentation.fragments.details
+package dev.dslam.merekeapp.presentation.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -46,6 +46,7 @@ class DetailsImageFragment : Fragment() {
                 Glide
                     .with(requireContext())
                     .load(image.imageUrl)
+                    .centerCrop()
                     .into(binding.productImage)
             }
         }

@@ -11,7 +11,7 @@ import dev.dslam.merekeapp.databinding.CategoryListItemBinding
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
-import dev.dslam.merekeapp.presentation.fragments.constants.Constants
+import dev.dslam.merekeapp.utils.Constants
 
 class CategoryDelegateAdapter :
     DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {

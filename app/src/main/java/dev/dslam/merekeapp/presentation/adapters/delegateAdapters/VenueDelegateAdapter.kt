@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.presentation.adapters.VenueListAdapter
 import dev.dslam.merekeapp.databinding.VerticalListItemBinding
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
-import dev.dslam.merekeapp.models.Venue
 import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
 
-class VenueDelegateAdapter(
-    private val venueClickListener: (Venue) -> Unit
-) : DelegateAdapter<VenueItem, VenueDelegateAdapter.VenueItemViewHolder>(VenueItem::class.java) {
+class VenueDelegateAdapter : DelegateAdapter<VenueItem, VenueDelegateAdapter.VenueItemViewHolder>(VenueItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
         VenueItemViewHolder(
@@ -37,13 +34,7 @@ class VenueDelegateAdapter(
     inner class VenueItemViewHolder(private val binding: VerticalListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val venueListAdapter by lazy {
-            VenueListAdapter(
-                viewClickListener = {
-                    venueClickListener(it)
-                }
-            )
-        }
+        private val venueListAdapter = VenueListAdapter()
 
         fun bind(item: VenueItem) {
             with(binding) {

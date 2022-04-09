@@ -10,8 +10,20 @@
         android:label="fragment_home">
 
         <action
-            app:destination="@id/venueDetailsActivity"/>
+            android:id="@+id/action_homeFragment_to_VenueDetailsActivity"
+            app:destination="@id/venueDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
 
+        <action
+            android:id="@+id/action_homeFragment_to_PersonDetailsActivity"
+            app:destination="@id/personDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out"/>
     </fragment>
 
     <fragment
@@ -32,6 +44,18 @@
     <activity
         android:id="@+id/venueDetailsActivity"
         android:name="dev.dslam.merekeapp.presentation.activities.VenueDetailsActivity"
-        android:label="activity_venue_details" />
+        android:label="activity_venue_details">
+        <argument
+            android:name="venue"
+            app:argType="dev.dslam.merekeapp.models.Venue" />
+    </activity>
 
+    <activity
+        android:id="@+id/personDetailsActivity"
+        android:name="dev.dslam.merekeapp.presentation.activities.PersonDetailsActivity"
+        android:label="activity_person_details">
+        <argument
+            android:name="person"
+            app:argType="dev.dslam.merekeapp.models.Person" />
+    </activity>
 </navigation>

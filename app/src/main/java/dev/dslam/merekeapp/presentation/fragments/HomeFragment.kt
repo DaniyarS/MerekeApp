@@ -1,6 +1,5 @@
 package dev.dslam.merekeapp.presentation.fragments
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,8 +18,6 @@ import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.CompositeAdapter
 import dev.dslam.merekeapp.databinding.FragmentHomeBinding
-import dev.dslam.merekeapp.models.Singer
-import dev.dslam.merekeapp.models.Venue
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,21 +34,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val categoryDelegateAdapter = CategoryDelegateAdapter()
 
-    private val singerDelegateAdapter by lazy {
-        SingerDelegateAdapter(
-            singerClickListener = {
-                listener.onSingerSelected(it)
-            }
-        )
-    }
+    private val singerDelegateAdapter = SingerDelegateAdapter()
 
-    private val venueDelegateAdapter by lazy {
-        VenueDelegateAdapter(
-            venueClickListener = {
-                listener.onVenueSelected(it)
-            }
-        )
-    }
+    private val venueDelegateAdapter = VenueDelegateAdapter()
 
     private val compositeAdapter by lazy {
         CompositeAdapter
@@ -60,19 +45,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             .add(categoryDelegateAdapter)
             .add(venueDelegateAdapter)
             .build()
-    }
-
-    private lateinit var listener: OnItemSelected
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnItemSelected) {
-            listener = context
-        } else {
-            throw ClassCastException(
-                "$context must implement OnItemSelected."
-            )
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -126,11 +98,5 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 list.add(SingerItem(singerList))
             }
         }
-    }
-
-    interface OnItemSelected {
-        fun onSingerSelected(singer: Singer)
-        fun onVenueSelected(venue: Venue)
-        fun onViewAllClicked(categoryId: Int)
     }
 }

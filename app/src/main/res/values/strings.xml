@@ -11,6 +11,19 @@
     <string name="str_rating_image" translatable="false">rating image</string>
     <string name="str_back_button" translatable="false">back button</string>
     <string name="str_product_image" translatable="false">Изображение сущности</string>
+    <string name="str_add_to_cart">Добавить в корзину</string>
+    <string name="str_about_singer">Об исполнителе</string>
+    <string name="str_venue_information">Информация</string>
+    <string name="str_kitchen">Кухня</string>
+    <string name="str_average_price">Средний чек</string>
+    <string name="str_place_quantity_label">Количество мест</string>
+    <string name="str_working_time_label">Время работы</string>
+    <string name="str_address_label">Адрес</string>
+    <string name="str_extra_features">Дополнительные преимущества</string>
+    <string name="str_smoke_area">Зона для курящих</string>
+    <string name="str_karaoke">Караоке</string>
+    <string name="str_parking">Парковка</string>
+    <string name="str_about">Описание</string>
 
     <!--ERRORS-->
 
