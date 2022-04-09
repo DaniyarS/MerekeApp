@@ -8,6 +8,21 @@
     <string name="str_profile">Жеке бет</string>
     <string name="str_search">Іздеу…</string>
     <string name="str_view_all">Бар. көру</string>
-    <string name="str_person_image">Адам кескіні</string>
-    <string name="str_rating_image">Рейтинг кескіні</string>
+    <string name="str_add_to_cart">Қоржынға салу</string>
+    <string name="str_about_singer">Әнші туралы</string>
+    <string name="str_venue_information">Ақпарат</string>
+    <string name="str_kitchen">Асхана</string>
+    <string name="str_average_price">Орташа чек</string>
+    <string name="str_place_quantity_label">Орындар саны</string>
+    <string name="str_working_time_label">Жұмыс уақыты</string>
+    <string name="str_address_label">Мекен-жайы</string>
+    <string name="str_extra_features">Қосымша заттары</string>
+    <string name="str_smoke_area">Темекі зонасы</string>
+    <string name="str_karaoke">Караоке</string>
+    <string name="str_parking">Тұрақ</string>
+    <string name="str_about">Сипаттама</string>
+
+    <!--ERRORS-->
+
+    <string name="str_no_data_loaded">АҚпарат жуктелмеді</string>
 </resources>
