@@ -3,7 +3,6 @@ package dev.dslam.merekeapp.utils
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
-import androidx.core.view.setPadding
 
 private const val DRAWABLE_LEFT_INDEX = 0
 private const val DRAWABLE_TOP_INDEX = 1
@@ -46,5 +45,4 @@ fun TextView.setRightDrawable(@DrawableRes drawableResId: Int) {
         rightDrawable,
         bottomDrawable
     )
-
 }
