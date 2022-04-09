@@ -1,7 +1,7 @@
 package dev.dslam.merekeapp.models.adaptermodels
 
-import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapterItem
-import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
+import dev.dslam.merekeapp.adapters.composeAdapter.DelegateAdapterItem
+import dev.dslam.merekeapp.adapters.composeAdapter.Payloadable
 
 data class DancersItem(
     val id: Int,

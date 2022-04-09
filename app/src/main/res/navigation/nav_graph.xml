@@ -2,60 +2,26 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/catalogFragment">
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.HomeFragment"
-        android:label="fragment_home">
-
-        <action
-            android:id="@+id/action_homeFragment_to_VenueDetailsActivity"
-            app:destination="@id/venueDetailsActivity"
-            app:enterAnim="@anim/slide_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
-
-        <action
-            android:id="@+id/action_homeFragment_to_PersonDetailsActivity"
-            app:destination="@id/personDetailsActivity"
-            app:enterAnim="@anim/slide_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
-    </fragment>
+        android:name="dev.dslam.merekeapp.fragments.HomeFragment"
+        android:label="fragment_home" />
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.CatalogFragment"
+        android:name="dev.dslam.merekeapp.fragments.CatalogFragment"
         android:label="fragment_catalog" />
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.CartFragment"
+        android:name="dev.dslam.merekeapp.fragments.CartFragment"
         android:label="fragment_cart" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.ProfileFragment"
+        android:name="dev.dslam.merekeapp.fragments.ProfileFragment"
         android:label="fragment_profile" />
 
-    <activity
-        android:id="@+id/venueDetailsActivity"
-        android:name="dev.dslam.merekeapp.presentation.activities.VenueDetailsActivity"
-        android:label="activity_venue_details">
-        <argument
-            android:name="venue"
-            app:argType="dev.dslam.merekeapp.models.Venue" />
-    </activity>
-
-    <activity
-        android:id="@+id/personDetailsActivity"
-        android:name="dev.dslam.merekeapp.presentation.activities.PersonDetailsActivity"
-        android:label="activity_person_details">
-        <argument
-            android:name="person"
-            app:argType="dev.dslam.merekeapp.models.Person" />
-    </activity>
 </navigation>
