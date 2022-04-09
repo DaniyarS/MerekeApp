@@ -15,5 +15,4 @@ class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: Mer
             val newSingerList = merekeApi.getNewSingers()
         }
     }
-
 }
