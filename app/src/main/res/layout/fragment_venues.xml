@@ -3,11 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragments.mainMenu.ProfileFragment">
+    tools:context=".presentation.fragments.catalog.VenuesFragment">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/catalogProductList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:text="Create Fragment" />
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp" />
 
 </FrameLayout>

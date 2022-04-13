@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.SingerDiffUtilCallback
 import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.models.Singer
-import dev.dslam.merekeapp.presentation.fragments.HomeFragmentDirections
+import dev.dslam.merekeapp.presentation.fragments.mainMenu.HomeFragmentDirections
 
 class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder>(SingerDiffUtilCallback()) {
 

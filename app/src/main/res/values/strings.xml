@@ -24,9 +24,16 @@
     <string name="str_karaoke">Караоке</string>
     <string name="str_parking">Парковка</string>
     <string name="str_about">Описание</string>
+    <string name="str_venues">Рестораны</string>
+    <string name="str_singers">Певцы</string>
+    <string name="str_showmans">Шоумены</string>
+    <string name="str_dancers">Танцоры</string>
+    <string name="str_musicians">Музыканты</string>
 
     <!--ERRORS-->
 
     <string name="str_no_data_loaded">Не удалось прогрузить данные</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -21,6 +21,11 @@
     <string name="str_karaoke">Караоке</string>
     <string name="str_parking">Тұрақ</string>
     <string name="str_about">Сипаттама</string>
+    <string name="str_venues">Ресторандар</string>
+    <string name="str_singers">Әншілер</string>
+    <string name="str_showmans">Тамадалар</string>
+    <string name="str_dancers">Бишілер</string>
+    <string name="str_musicians">Музыканттар</string>
 
     <!--ERRORS-->
 

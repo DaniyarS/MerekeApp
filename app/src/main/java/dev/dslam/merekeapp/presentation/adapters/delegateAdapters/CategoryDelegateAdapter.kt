@@ -12,6 +12,7 @@ import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
 import dev.dslam.merekeapp.utils.Constants
+import dev.dslam.merekeapp.utils.Constants.CATEGORY
 
 class CategoryDelegateAdapter :
     DelegateAdapter<CategoryItem, CategoryDelegateAdapter.CategoryItemViewHolder>(CategoryItem::class.java) {
@@ -38,7 +39,7 @@ class CategoryDelegateAdapter :
         fun bind(item: CategoryItem) {
             binding.categoryName.text = item.category.name
             binding.viewAllText.setOnClickListener {
-                val bundle = bundleOf(Constants.CATEGORY_ID to item.category.id)
+                val bundle = bundleOf(CATEGORY to item.category)
 
                 val navOptions = NavOptions.Builder()
                     .setPopUpTo(R.id.homeFragment, inclusive = false, saveState = true)

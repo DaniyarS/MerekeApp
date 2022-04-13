@@ -6,7 +6,7 @@ import androidx.navigation.navArgs
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.ActivityPersonDetailsBinding
 import dev.dslam.merekeapp.models.Singer
-import dev.dslam.merekeapp.presentation.adapters.ViewPagerAdapter
+import dev.dslam.merekeapp.presentation.adapters.viewPagers.ViewPagerAdapter
 
 class PersonDetailsActivity : AppCompatActivity() {
 

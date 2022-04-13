@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.VenueDiffUtilCallback
 import dev.dslam.merekeapp.databinding.VenueListItemBinding
 import dev.dslam.merekeapp.models.Venue
-import dev.dslam.merekeapp.presentation.fragments.HomeFragmentDirections
+import dev.dslam.merekeapp.presentation.fragments.mainMenu.HomeFragmentDirections
 
 class VenueListAdapter: ListAdapter<Venue, VenueListAdapter.VenueViewHolder>(VenueDiffUtilCallback()) {
 

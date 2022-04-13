@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.navArgs
 import dev.dslam.merekeapp.databinding.ActivityVenueDetailsBinding
-import dev.dslam.merekeapp.presentation.adapters.ViewPagerAdapter
+import dev.dslam.merekeapp.presentation.adapters.viewPagers.ViewPagerAdapter
 
 class VenueDetailsActivity : AppCompatActivity() {
 
