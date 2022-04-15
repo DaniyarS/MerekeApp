@@ -63,7 +63,7 @@ class EqualSpacingItemDecoration(
 
     companion object {
         const val HORIZONTAL = 0
-        private const val VERTICAL = 1
-        private const val GRID = 2
+        const val VERTICAL = 1
+        const val GRID = 2
     }
 }

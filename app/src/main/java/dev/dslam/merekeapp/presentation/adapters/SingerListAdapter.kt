@@ -22,9 +22,9 @@ class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder
 
     inner class PersonViewHolder(private val binding: PersonListItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(singer: Singer) {
-            binding.productNameTextView.text = singer.name
+            binding.personNameTextView.text = singer.name
             // binding.ratingTextView.text = singer.rating.toString()
-            binding.productAddressTextview.text = singer.description
+            binding.personDescriptionTextview.text = singer.description
 
             binding.root.setOnClickListener {
                 val action = HomeFragmentDirections.actionHomeFragmentToPersonDetailsActivity(person = singer)
@@ -35,7 +35,7 @@ class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder
                 .with(binding.root)
                 .load(singer.images[0].imageUrl)
                 .centerCrop()
-                .into(binding.productImageView)
+                .into(binding.personImageView)
         }
     }
 }

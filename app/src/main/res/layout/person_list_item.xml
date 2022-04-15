@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/productImageView"
+            android:id="@+id/personImageView"
             android:layout_width="156dp"
             android:layout_height="156dp"
             android:layout_margin="8dp"
@@ -28,18 +28,18 @@
             android:contentDescription="@string/str_person_image" />
 
         <TextView
-            android:id="@+id/productNameTextView"
+            android:id="@+id/personNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/productImageView"
-            app:layout_constraintTop_toBottomOf="@+id/productImageView"
+            app:layout_constraintStart_toStartOf="@+id/personImageView"
+            app:layout_constraintTop_toBottomOf="@+id/personImageView"
             tools:text="Rock Crystal" />
 
         <TextView
-            android:id="@+id/productAddressTextview"
+            android:id="@+id/personDescriptionTextview"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="4dp"
@@ -49,8 +49,8 @@
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/productNameTextView"
-            app:layout_constraintTop_toBottomOf="@+id/productNameTextView"
+            app:layout_constraintStart_toStartOf="@+id/personNameTextView"
+            app:layout_constraintTop_toBottomOf="@+id/personNameTextView"
             tools:text="пр. Гагарина, 2, уг. ул. Толе би" />
 
 <!--        <ImageView-->
