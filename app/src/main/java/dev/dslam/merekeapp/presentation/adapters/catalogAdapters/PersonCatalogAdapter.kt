@@ -1,5 +1,6 @@
 package dev.dslam.merekeapp.presentation.adapters.catalogAdapters
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.ListAdapter
@@ -14,7 +15,7 @@ class PersonCatalogAdapter : ListAdapter<Person, PersonCatalogAdapter.ViewHolder
     PersonDiffUtilCallback()
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = PersonListItemBinding.bind(parent)
+        val binding = PersonListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

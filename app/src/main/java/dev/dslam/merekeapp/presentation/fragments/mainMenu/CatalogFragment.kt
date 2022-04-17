@@ -28,7 +28,7 @@ class CatalogFragment : Fragment(R.layout.fragment_catalog) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = CatalogViewPagerAdapter(parentFragmentManager, lifecycle)
+        val adapter = CatalogViewPagerAdapter(childFragmentManager, lifecycle)
         val arg = requireArguments().getParcelable<Category>(CATEGORY)
 
         binding.viewPager.adapter = adapter

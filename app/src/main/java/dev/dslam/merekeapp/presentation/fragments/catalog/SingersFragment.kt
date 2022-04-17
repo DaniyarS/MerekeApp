@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.dslam.merekeapp.databinding.FragmentSingersBinding
+import dev.dslam.merekeapp.models.Status
 import dev.dslam.merekeapp.presentation.adapters.catalogAdapters.PersonCatalogAdapter
+import dev.dslam.merekeapp.presentation.viewModels.SingersFragmentViewModel
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
+import dev.dslam.merekeapp.utils.dp
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SingersFragment : Fragment() {
 
@@ -16,6 +22,7 @@ class SingersFragment : Fragment() {
     private val binding
         get() = _binding!!
     private val singersAdapter = PersonCatalogAdapter()
+    private val viewModel: SingersFragmentViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +36,15 @@ class SingersFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         observeSingers()
+        viewModel.loadingState.observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.FAILED -> Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
+                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
+                    .show()
+                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        }
     }
 
     override fun onDestroyView() {
@@ -38,17 +54,21 @@ class SingersFragment : Fragment() {
 
     private fun setupViews() = with(binding) {
         singersList.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            GridLayoutManager(requireContext(), 2)
         singersList.adapter = singersAdapter
         singersList.addItemDecoration(
             EqualSpacingItemDecoration(
-                8,
+                16.dp,
                 EqualSpacingItemDecoration.GRID
             )
         )
     }
 
     private fun observeSingers() {
-
+        viewModel.allSingersList.observe(viewLifecycleOwner) {
+            if (!it.isNullOrEmpty()) {
+                singersAdapter.submitList(it)
+            }
+        }
     }
 }

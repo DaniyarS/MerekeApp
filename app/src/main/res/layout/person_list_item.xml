@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="172dp"
     android:layout_height="240dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
     app:cardBackgroundColor="@color/gray_F5"
     app:cardCornerRadius="8dp">
 
@@ -20,12 +18,12 @@
             android:layout_margin="8dp"
             android:layout_marginEnd="8dp"
             android:background="#813030"
+            android:contentDescription="@string/str_person_image"
             app:circularflow_defaultRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:mipmap/sym_def_app_icon"
-            android:contentDescription="@string/str_person_image" />
+            app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
         <TextView
             android:id="@+id/personNameTextView"
@@ -53,26 +51,26 @@
             app:layout_constraintTop_toBottomOf="@+id/personNameTextView"
             tools:text="пр. Гагарина, 2, уг. ул. Толе би" />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/ratingImageView"-->
-<!--            android:layout_width="16dp"-->
-<!--            android:layout_height="16dp"-->
-<!--            android:src="@drawable/ic_baseline_star"-->
-<!--            android:contentDescription="@string/str_rating_image"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/ratingTextView"-->
-<!--            app:layout_constraintEnd_toStartOf="@+id/ratingTextView"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/ratingTextView" />-->
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ratingImageView"-->
+        <!--            android:layout_width="16dp"-->
+        <!--            android:layout_height="16dp"-->
+        <!--            android:src="@drawable/ic_baseline_star"-->
+        <!--            android:contentDescription="@string/str_rating_image"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/ratingTextView"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/ratingTextView"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/ratingTextView" />-->
 
-<!--        <TextView-->
-<!--            android:id="@+id/ratingTextView"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:fontFamily="@font/roboto_regular"-->
-<!--            android:textSize="12sp"-->
-<!--            app:layout_constraintBottom_toBottomOf="@+id/productNameTextView"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/productImageView"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/productNameTextView"-->
-<!--            tools:text="4/5" />-->
+        <!--        <TextView-->
+        <!--            android:id="@+id/ratingTextView"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fontFamily="@font/roboto_regular"-->
+        <!--            android:textSize="12sp"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/productNameTextView"-->
+        <!--            app:layout_constraintEnd_toEndOf="@+id/productImageView"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/productNameTextView"-->
+        <!--            tools:text="4/5" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

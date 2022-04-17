@@ -9,13 +9,13 @@ import dev.dslam.merekeapp.models.LoadingState
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class SingersFragmentViewModel(private val appRepository: AppRepository) : ViewModel() {
+class ShowmansFragmentViewModel(private val appRepository: AppRepository) : ViewModel() {
 
     private val _loadingState = MutableLiveData<LoadingState>()
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val allSingersList = appRepository.allSingers
+    val allShowmansList = appRepository.allSingers
 
     init {
         fetchData()
@@ -32,19 +32,4 @@ class SingersFragmentViewModel(private val appRepository: AppRepository) : ViewM
             }
         }
     }
-
 }
-
-//sealed class SingerDataState {
-//    data class Singer(
-//        val id: Int,
-//        val name: String,
-//        val description: String,
-//        val rating: Float,
-//        val images: List<Image>
-//    ) : SingerDataState()
-//
-//    data class IsLoading(
-//        val isLoading: Boolean
-//    ) : SingerDataState()
-//}
