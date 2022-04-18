@@ -11,6 +11,8 @@ class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: Mer
     val allSingers = merekeDao.getAllSingers()
     val allShowmans = merekeDao.getAllShowmans()
     val allVenues = merekeDao.getAllVenues()
+    val allDancersList = merekeDao.getAllDancers()
+    val allMusiciansList = merekeDao.getAllMusicians()
 
     suspend fun refresh() {
         withContext(Dispatchers.IO) {

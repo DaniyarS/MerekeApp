@@ -34,7 +34,7 @@ class ShowmansFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        observeSingers()
+        observeShowmans()
         viewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.RUNNING -> {
@@ -72,7 +72,7 @@ class ShowmansFragment : Fragment() {
         )
     }
 
-    private fun observeSingers() {
+    private fun observeShowmans() {
         viewModel.allShowmansList.observe(viewLifecycleOwner) {
             if (!it.isNullOrEmpty()) {
                 showmansAdapter.submitList(it)
