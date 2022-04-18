@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.databinding.PersonListItemBinding
 import dev.dslam.merekeapp.models.Person
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.PersonDiffUtilCallback
-import dev.dslam.merekeapp.presentation.fragments.mainMenu.HomeFragmentDirections
+import dev.dslam.merekeapp.presentation.fragments.mainMenu.CatalogFragmentDirections
 
 class PersonCatalogAdapter : ListAdapter<Person, PersonCatalogAdapter.ViewHolder>(
     PersonDiffUtilCallback()
@@ -28,7 +28,7 @@ class PersonCatalogAdapter : ListAdapter<Person, PersonCatalogAdapter.ViewHolder
             binding.personDescriptionTextview.text = person.description
 
             binding.root.setOnClickListener {
-                val action = HomeFragmentDirections.actionHomeFragmentToPersonDetailsActivity(person = person)
+                val action = CatalogFragmentDirections.actionCatalogFragmentToPersonDetailsActivity(person = person)
                 itemView.findNavController().navigate(action)
             }
 

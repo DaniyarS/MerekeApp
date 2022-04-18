@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -38,11 +39,20 @@ class SingersFragment : Fragment() {
         observeSingers()
         viewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
-                Status.FAILED -> Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
-                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
-                    .show()
-                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
-                    .show()
+                Status.RUNNING -> {
+                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
+                        .show()
+                    binding.progressBar.isVisible = true
+                }
+                Status.SUCCESS -> {
+                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
+                        .show()
+                    binding.progressBar.isVisible = false
+                }
+                Status.FAILED -> {
+                    Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
+                    binding.progressBar.isVisible = false
+                }
             }
         }
     }

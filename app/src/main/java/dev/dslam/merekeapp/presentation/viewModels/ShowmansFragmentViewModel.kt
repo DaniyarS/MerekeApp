@@ -15,7 +15,7 @@ class ShowmansFragmentViewModel(private val appRepository: AppRepository) : View
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val allShowmansList = appRepository.allSingers
+    val allShowmansList = appRepository.allShowmans
 
     init {
         fetchData()

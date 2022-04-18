@@ -10,6 +10,7 @@ import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.local.MerekeDao
 import dev.dslam.merekeapp.network.MerekeApi
 import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
+import dev.dslam.merekeapp.presentation.viewModels.ShowmansFragmentViewModel
 import dev.dslam.merekeapp.presentation.viewModels.SingersFragmentViewModel
 import dev.dslam.merekeapp.presentation.viewModels.VenuesFragmentViewModel
 import okhttp3.Cache
@@ -31,6 +32,9 @@ val viewModelModule = module {
     }
     viewModel {
         SingersFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        ShowmansFragmentViewModel(appRepository = get())
     }
 }
 
