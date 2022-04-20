@@ -9,9 +9,7 @@ import dev.dslam.merekeapp.local.AppDatabase
 import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.local.MerekeDao
 import dev.dslam.merekeapp.network.MerekeApi
-import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
-import dev.dslam.merekeapp.presentation.viewModels.SingersFragmentViewModel
-import dev.dslam.merekeapp.presentation.viewModels.VenuesFragmentViewModel
+import dev.dslam.merekeapp.presentation.viewModels.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
@@ -31,6 +29,15 @@ val viewModelModule = module {
     }
     viewModel {
         SingersFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        ShowmansFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        DancersFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        MusiciansFragmentViewModel(appRepository = get())
     }
 }
 

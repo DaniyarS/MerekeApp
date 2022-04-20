@@ -10,12 +10,12 @@ import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class VenuesFragmentViewModel(private val appRepository: AppRepository) : ViewModel() {
+
     private val _loadingState = MutableLiveData<LoadingState>()
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val newVenueList = appRepository.newVenueList
-    val newSingersList = appRepository.newSingerList
+    val allVenueList = appRepository.allVenues
 
     init {
         fetchData()

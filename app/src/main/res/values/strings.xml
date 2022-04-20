@@ -29,11 +29,12 @@
     <string name="str_showmans">Шоумены</string>
     <string name="str_dancers">Танцоры</string>
     <string name="str_musicians">Музыканты</string>
-
+    <string name="str_about_artist">Об исполнителе</string>
+    <string name="str_about_showman">О шоумене</string>
+    <string name="str_about_dancers">О тонцорах</string>
+    <string name="str_about_musicians">О музыкантах</string>
     <!--ERRORS-->
 
     <string name="str_no_data_loaded">Не удалось прогрузить данные</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

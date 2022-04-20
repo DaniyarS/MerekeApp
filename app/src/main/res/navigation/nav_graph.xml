@@ -33,6 +33,22 @@
         <argument
             android:name="category"
             app:argType="dev.dslam.merekeapp.models.Category" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_VenueDetailsActivity"
+            app:destination="@id/venueDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_PersonDetailsActivity"
+            app:destination="@id/personDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 
     <fragment

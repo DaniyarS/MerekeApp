@@ -26,7 +26,10 @@
     <string name="str_showmans">Тамадалар</string>
     <string name="str_dancers">Бишілер</string>
     <string name="str_musicians">Музыканттар</string>
-
+    <string name="str_about_artist">Әнші жайлы</string>
+    <string name="str_about_showman">Шоумен жайлы</string>
+    <string name="str_about_dancers">Бишілер жайлы</string>
+    <string name="str_about_musicians">Музыканттар жайлы</string>
     <!--ERRORS-->
 
     <string name="str_no_data_loaded">АҚпарат жуктелмеді</string>
