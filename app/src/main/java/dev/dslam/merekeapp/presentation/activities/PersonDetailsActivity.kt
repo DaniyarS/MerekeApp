@@ -5,8 +5,9 @@ import android.os.Bundle
 import androidx.navigation.navArgs
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.ActivityPersonDetailsBinding
+import dev.dslam.merekeapp.models.Showman
 import dev.dslam.merekeapp.models.Singer
-import dev.dslam.merekeapp.presentation.adapters.ViewPagerAdapter
+import dev.dslam.merekeapp.presentation.adapters.viewPagers.ViewPagerAdapter
 
 class PersonDetailsActivity : AppCompatActivity() {
 
@@ -31,6 +32,12 @@ class PersonDetailsActivity : AppCompatActivity() {
             backButton.setOnClickListener {
                 val activity = this@PersonDetailsActivity
                 activity.finish()
+            }
+
+            about.text = when(person) {
+                is Singer -> getString(R.string.str_about_artist)
+                is Showman -> getString(R.string.str_about_showman)
+                else -> getString(R.string.str_about)
             }
         }
 

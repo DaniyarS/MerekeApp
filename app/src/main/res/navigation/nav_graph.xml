@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.HomeFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.mainMenu.HomeFragment"
         android:label="fragment_home">
 
         <action
@@ -15,7 +15,7 @@
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
+            app:popExitAnim="@anim/slide_out" />
 
         <action
             android:id="@+id/action_homeFragment_to_PersonDetailsActivity"
@@ -23,22 +23,42 @@
             app:enterAnim="@anim/slide_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out"/>
+            app:popExitAnim="@anim/slide_out" />
     </fragment>
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.CatalogFragment"
-        android:label="fragment_catalog" />
+        android:name="dev.dslam.merekeapp.presentation.fragments.mainMenu.CatalogFragment"
+        android:label="fragment_catalog">
+        <argument
+            android:name="category"
+            app:argType="dev.dslam.merekeapp.models.Category" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_VenueDetailsActivity"
+            app:destination="@id/venueDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+
+        <action
+            android:id="@+id/action_catalogFragment_to_PersonDetailsActivity"
+            app:destination="@id/personDetailsActivity"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
 
     <fragment
         android:id="@+id/cartFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.CartFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.mainMenu.CartFragment"
         android:label="fragment_cart" />
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.ProfileFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.mainMenu.ProfileFragment"
         android:label="fragment_profile" />
 
     <activity

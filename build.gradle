@@ -20,6 +20,7 @@ buildscript {
             koin_version = '3.1.5'
             retrofit_version = '2.6.0'
             room_version = '2.4.2'
+            progress_bar = '1.2.0'
         }
     }
 

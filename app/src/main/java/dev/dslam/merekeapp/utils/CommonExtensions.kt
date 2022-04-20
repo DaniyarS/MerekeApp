@@ -1,5 +1,6 @@
 package dev.dslam.merekeapp.utils
 
+import android.content.res.Resources
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
@@ -46,3 +47,6 @@ fun TextView.setRightDrawable(@DrawableRes drawableResId: Int) {
         bottomDrawable
     )
 }
+
+val Int.dp: Int
+    get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()

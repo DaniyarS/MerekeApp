@@ -1,4 +1,4 @@
-package dev.dslam.merekeapp.presentation.fragments
+package dev.dslam.merekeapp.presentation.fragments.mainMenu
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -93,7 +93,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         homeFragmentViewModel.newSingersList.observe(viewLifecycleOwner) { singerList ->
             if (singerList != null) {
-                val categoryItem = CategoryItem(Category(2, "Новые артисты"))
+                val categoryItem = CategoryItem(Category(1, "Новые артисты"))
                 list.add(categoryItem)
                 list.add(SingerItem(singerList))
             }

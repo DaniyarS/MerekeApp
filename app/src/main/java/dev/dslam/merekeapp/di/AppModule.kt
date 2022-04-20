@@ -9,7 +9,7 @@ import dev.dslam.merekeapp.local.AppDatabase
 import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.local.MerekeDao
 import dev.dslam.merekeapp.network.MerekeApi
-import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
+import dev.dslam.merekeapp.presentation.viewModels.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
@@ -22,7 +22,22 @@ private const val BASE_URL = "https://localhost:2000/"
 
 val viewModelModule = module {
     viewModel{
-        HomeFragmentViewModel(get())
+        HomeFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        VenuesFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        SingersFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        ShowmansFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        DancersFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        MusiciansFragmentViewModel(appRepository = get())
     }
 }
 
