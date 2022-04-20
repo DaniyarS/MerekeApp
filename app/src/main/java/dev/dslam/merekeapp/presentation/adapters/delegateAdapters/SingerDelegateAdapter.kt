@@ -10,6 +10,7 @@ import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
+import dev.dslam.merekeapp.utils.dp
 
 class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
 
@@ -39,7 +40,7 @@ class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.
             with(binding) {
                 productList.layoutManager = LinearLayoutManager(this.root.context, LinearLayoutManager.HORIZONTAL, false)
                 productList.addItemDecoration(
-                    EqualSpacingItemDecoration(8, EqualSpacingItemDecoration.HORIZONTAL)
+                    EqualSpacingItemDecoration(16.dp, EqualSpacingItemDecoration.HORIZONTAL)
                 )
                 productList.adapter = singerListAdapter
                 singerListAdapter.submitList(item.singers)

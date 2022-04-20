@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "venues")
+@Entity(tableName = "singers")
 @Parcelize
 data class Singer(
     override val id: Int,

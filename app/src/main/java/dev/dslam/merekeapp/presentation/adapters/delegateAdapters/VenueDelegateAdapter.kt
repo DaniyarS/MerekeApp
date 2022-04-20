@@ -10,6 +10,7 @@ import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
+import dev.dslam.merekeapp.utils.dp
 
 class VenueDelegateAdapter : DelegateAdapter<VenueItem, VenueDelegateAdapter.VenueItemViewHolder>(VenueItem::class.java) {
 
@@ -41,7 +42,7 @@ class VenueDelegateAdapter : DelegateAdapter<VenueItem, VenueDelegateAdapter.Ven
                 productList.apply {
                     layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
                     addItemDecoration(
-                        EqualSpacingItemDecoration(8, EqualSpacingItemDecoration.HORIZONTAL)
+                        EqualSpacingItemDecoration(16.dp, EqualSpacingItemDecoration.HORIZONTAL)
                     )
                     adapter = venueListAdapter
                 }

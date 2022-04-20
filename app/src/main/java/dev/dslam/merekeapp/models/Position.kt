@@ -4,6 +4,6 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Image(
-    val imageUrl: String
+data class Position(
+    val position: Int
 ) : Parcelable
