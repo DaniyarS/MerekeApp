@@ -60,10 +60,6 @@ dependencies {
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     // Koin
-//    implementation "io.insert-koin:koin-core:$koin_version"
-//    implementation "io.insert-koin:koin-android:$koin_version"
-//    implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
-//    testImplementation "io.insert-koin:koin-test:$koin_version"
     implementation "org.koin:koin-android:2.0.1"
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
     implementation 'org.koin:koin-androidx-scope:2.0.1'
