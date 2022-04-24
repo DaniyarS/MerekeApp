@@ -1,6 +1,76 @@
 package dev.dslam.merekeapp.presentation.fragments.mainMenu
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import dev.dslam.merekeapp.R
+import androidx.recyclerview.widget.GridLayoutManager
+import dev.dslam.merekeapp.databinding.FragmentProfileBinding
+import dev.dslam.merekeapp.models.UserMenu
+import dev.dslam.merekeapp.presentation.adapters.UserMenuListAdapter
+import dev.dslam.merekeapp.presentation.viewModels.ProfileAction
+import dev.dslam.merekeapp.presentation.viewModels.ProfileFragmentViewModel
+import dev.dslam.merekeapp.presentation.viewModels.ProfileState
+import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
+import dev.dslam.merekeapp.utils.dp
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProfileFragment : Fragment(R.layout.fragment_profile)
+class ProfileFragment : Fragment() {
+
+    private var _binding: FragmentProfileBinding? = null
+    private val binding get() = _binding!!
+    private val profileFragmentViewModel: ProfileFragmentViewModel by viewModel()
+    private val userMenuListAdapter = UserMenuListAdapter()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentProfileBinding.inflate(inflater)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        configureObservers()
+        setupViews()
+        profileFragmentViewModel.dispatch(ProfileAction.GetUserMenu)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    private fun setupViews() = with(binding.profileItemsList) {
+        layoutManager =
+            GridLayoutManager(requireContext(), 2)
+        adapter = userMenuListAdapter
+        addItemDecoration(
+            EqualSpacingItemDecoration(
+                16.dp,
+                EqualSpacingItemDecoration.GRID
+            )
+        )
+    }
+
+    private fun configureObservers() {
+        profileFragmentViewModel.state.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is ProfileState.Loading -> handleProgress(state.show)
+                is ProfileState.ShowUserMenu -> handleUserMenuList(state.userMenuList)
+            }
+        }
+    }
+
+    private fun handleProgress(show: Boolean) {
+        binding.progressBar.isVisible = show
+    }
+
+    private fun handleUserMenuList(menuList: List<UserMenu>) {
+        userMenuListAdapter.submitList(menuList)
+    }
+}

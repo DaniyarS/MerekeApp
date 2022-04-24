@@ -11,5 +11,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_F5">#F5F5F7</color>
     <color name="transparent">#0000ffff</color>
+    <color name="transparent_blur">#50ffffff</color>
     <color name="tab_bg">#F5F5F7</color>
 </resources>

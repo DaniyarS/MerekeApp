@@ -39,6 +39,9 @@ val viewModelModule = module {
     viewModel {
         MusiciansFragmentViewModel(appRepository = get())
     }
+    viewModel {
+        ProfileFragmentViewModel(appRepository = get())
+    }
 }
 
 val apiModule = module {
