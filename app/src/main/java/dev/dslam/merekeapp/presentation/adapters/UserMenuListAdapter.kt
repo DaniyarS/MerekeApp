@@ -1,12 +1,17 @@
 package dev.dslam.merekeapp.presentation.adapters
 
+import android.app.Activity
+import android.os.Build
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.WindowInsets
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dev.dslam.merekeapp.databinding.ProfileListItemBinding
 import dev.dslam.merekeapp.models.UserMenu
 import dev.dslam.merekeapp.presentation.adapters.diffUtils.UserMenuDiffUtilCallback
+
 
 class UserMenuListAdapter : ListAdapter<UserMenu, UserMenuListAdapter.UserMenuViewHolder>(
     UserMenuDiffUtilCallback()
@@ -22,12 +27,19 @@ class UserMenuListAdapter : ListAdapter<UserMenu, UserMenuListAdapter.UserMenuVi
 
     inner class UserMenuViewHolder(private val binding: ProfileListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(userMenu: UserMenu) {
 
-            binding.userMenuItemButton.setImageResource(userMenu.iconId)
-            binding.userMenuItemName.text = binding.root.context.getString(userMenu.userMenuItemName)
+//        private val displayMetrics = DisplayMetrics()
 
-            binding.root.setOnClickListener {
+        fun bind(userMenu: UserMenu) = with(binding) {
+//            val context = root.context as Activity
+//            context.windowManager.defaultDisplay.getMetrics(displayMetrics)
+//
+//            root.layoutParams.width = displayMetrics.widthPixels / 2
+
+            userMenuItemButton.setImageResource(userMenu.iconId)
+            userMenuItemName.text = binding.root.context.getString(userMenu.userMenuItemName)
+
+            root.setOnClickListener {
 
             }
         }

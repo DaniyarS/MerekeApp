@@ -1,11 +1,14 @@
 package dev.dslam.merekeapp.presentation.viewModels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.models.UserMenu
+import kotlinx.coroutines.launch
 
 class ProfileFragmentViewModel(private val appRepository: AppRepository) : ViewModel() {
 
@@ -19,16 +22,17 @@ class ProfileFragmentViewModel(private val appRepository: AppRepository) : ViewM
         }
     }
 
-    private fun showUserData() = with(_state.value) {
-        ProfileState.Loading(true)
+    private fun showUserData() {
+        _state.value = ProfileState.Loading(true)
 
-        ProfileState.Loading(false)
+        _state.value = ProfileState.Loading(false)
     }
 
-    private fun showUserMenuList() = with(_state.value) {
-        ProfileState.Loading(true)
-        ProfileState.ShowUserMenu(generateUserMenuList())
-        ProfileState.Loading(false)
+    private fun showUserMenuList() {
+        _state.value = ProfileState.Loading(true)
+        val menuList = generateUserMenuList()
+        _state.postValue(ProfileState.ShowUserMenu(menuList))
+        _state.value = ProfileState.Loading(false)
     }
 
     private fun generateUserMenuList(): List<UserMenu> {
