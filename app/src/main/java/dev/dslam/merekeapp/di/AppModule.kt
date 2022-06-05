@@ -18,7 +18,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "https://localhost:2000/"
+private const val BASE_URL = "https://mereke.herokuapp.com/"
 
 val viewModelModule = module {
     viewModel{
