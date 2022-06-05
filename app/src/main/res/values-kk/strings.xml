@@ -8,7 +8,7 @@
     <string name="str_profile">Жеке бет</string>
     <string name="str_search">Іздеу…</string>
     <string name="str_view_all">Бар. көру</string>
-    <string name="str_add_to_cart">Қоржынға салу</string>
+    <string name="str_add_to_cart">Брондау</string>
     <string name="str_about_singer">Әнші туралы</string>
     <string name="str_venue_information">Ақпарат</string>
     <string name="str_kitchen">Асхана</string>
@@ -36,8 +36,10 @@
     <string name="str_user_order_history">Тапсырыс тарихы</string>
     <string name="str_user_faq">FAQ</string>
     <string name="str_user_about_app">Қолданба туралы</string>
-
+    <string name="str_welcome_to_mereke">Mereke-ге қош\nкелдініз!</string>
     <!--ERRORS-->
 
     <string name="str_no_data_loaded">АҚпарат жуктелмеді</string>
+    <string name="str_welcome_to_mereke_content">Армандаган тойынызды\nmereke-мен уйымдастырыныз!</string>
+    <string name="str_sign_in">Кіру</string>
 </resources>
