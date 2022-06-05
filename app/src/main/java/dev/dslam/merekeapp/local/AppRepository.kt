@@ -6,18 +6,17 @@ import kotlinx.coroutines.withContext
 
 class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: MerekeDao) {
 
-    val newVenueList = merekeDao.getNewVenues()
-    val newSingerList = merekeDao.getNewSingers()
-    val allSingers = merekeDao.getAllSingers()
-    val allShowmans = merekeDao.getAllShowmans()
+    val allPersonList = merekeDao.getAllPerson()
     val allVenues = merekeDao.getAllVenues()
-    val allDancersList = merekeDao.getAllDancers()
-    val allMusiciansList = merekeDao.getAllMusicians()
+    val allDancer
 
-    suspend fun refresh() {
+    suspend fun refreshMainPage() {
         withContext(Dispatchers.IO) {
-            val newVenueList = merekeApi.getNewVenues()
-            val newSingerList = merekeApi.getNewSingers()
+            val personList =  merekeApi.getAllPersons()
+            personList.body()?.let { merekeDao.addPersonList(personList = it) }
+
+            val venueList = merekeApi.getAllRestaurants()
+            venueList.body()?.let { merekeDao.addVenues(venues = it) }
         }
     }
 }

@@ -1,12 +1,12 @@
 package dev.dslam.merekeapp.models.adaptermodels
 
+import dev.dslam.merekeapp.models.Person
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapterItem
-import dev.dslam.merekeapp.models.Singer
 
 data class SingerItem(
-    val singers: List<Singer>
+    val personList: List<Person>
 ) : DelegateAdapterItem {
-    override fun id(): Any = singers
+    override fun id(): Any = personList
 
-    override fun content(): Any = singers
+    override fun content(): Any = personList
 }

@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.dslam.merekeapp.databinding.NewPersonListItemBinding
-import dev.dslam.merekeapp.presentation.adapters.diffUtils.SingerDiffUtilCallback
-import dev.dslam.merekeapp.models.Singer
+import dev.dslam.merekeapp.models.Person
+import dev.dslam.merekeapp.presentation.adapters.diffUtils.PersonDiffUtilCallback
 import dev.dslam.merekeapp.presentation.fragments.mainMenu.HomeFragmentDirections
 
-class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder>(SingerDiffUtilCallback()) {
+class PersonListAdapter : ListAdapter<Person, PersonListAdapter.PersonViewHolder>(PersonDiffUtilCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonViewHolder =
         PersonViewHolder(
@@ -21,7 +21,7 @@ class SingerListAdapter : ListAdapter<Singer, SingerListAdapter.PersonViewHolder
     override fun onBindViewHolder(holder: PersonViewHolder, position: Int) = holder.bind(getItem(position))
 
     inner class PersonViewHolder(private val binding: NewPersonListItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(singer: Singer) {
+        fun bind(singer: Person) {
             binding.personNameTextView.text = singer.name
             // binding.ratingTextView.text = singer.rating.toString()
             binding.personDescriptionTextview.text = singer.description

@@ -10,6 +10,6 @@ data class Singer(
     override val id: Int,
     override val name: String,
     override val description: String,
-    override val rating: Float,
-    override val images: List<Image>
-) : Person(id, name, description, rating, images), Parcelable
+    override val images: List<Image>,
+    override val isActive: Boolean
+) : Person(id, name, description, images, isActive), Parcelable

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import dev.dslam.merekeapp.presentation.adapters.SingerListAdapter
+import dev.dslam.merekeapp.presentation.adapters.PersonListAdapter
 import dev.dslam.merekeapp.databinding.VerticalListItemBinding
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.Payloadable
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
@@ -12,7 +12,7 @@ import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.DelegateAdapter
 import dev.dslam.merekeapp.utils.dp
 
-class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
+class PersonDelegateAdapter : DelegateAdapter<SingerItem, PersonDelegateAdapter.SingerItemViewHolder>(SingerItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): RecyclerView.ViewHolder =
         SingerItemViewHolder(
@@ -34,7 +34,7 @@ class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.
     inner class SingerItemViewHolder(private val binding: VerticalListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        private val singerListAdapter = SingerListAdapter()
+        private val singerListAdapter = PersonListAdapter()
 
         fun bind(item: SingerItem) {
             with(binding) {
@@ -43,7 +43,7 @@ class SingerDelegateAdapter : DelegateAdapter<SingerItem, SingerDelegateAdapter.
                     EqualSpacingItemDecoration(16.dp, EqualSpacingItemDecoration.HORIZONTAL)
                 )
                 productList.adapter = singerListAdapter
-                singerListAdapter.submitList(item.singers)
+                singerListAdapter.submitList(item.personList)
             }
         }
     }
