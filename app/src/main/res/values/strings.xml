@@ -11,7 +11,7 @@
     <string name="str_rating_image" translatable="false">rating image</string>
     <string name="str_back_button" translatable="false">back button</string>
     <string name="str_product_image" translatable="false">Изображение сущности</string>
-    <string name="str_add_to_cart">Добавить в корзину</string>
+    <string name="str_add_to_cart">Забронировать</string>
     <string name="str_about_singer">Об исполнителе</string>
     <string name="str_venue_information">Информация</string>
     <string name="str_kitchen">Кухня</string>
@@ -43,5 +43,10 @@
     <!--ERRORS-->
 
     <string name="str_no_data_loaded">Не удалось прогрузить данные</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="str_welcome_to_mereke">Добро пожаловать\nв Mereke!</string>
+    <string name="str_welcome_to_mereke_content">Создайте праздник своей мечты\nвместе с Mereke!</string>
+    <string name="str_sign_in">ВОЙТИ</string>
 
 </resources>
