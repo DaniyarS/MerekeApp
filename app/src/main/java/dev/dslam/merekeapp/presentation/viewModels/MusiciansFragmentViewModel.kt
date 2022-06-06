@@ -15,7 +15,7 @@ class MusiciansFragmentViewModel(private val appRepository: AppRepository) : Vie
     val loadingState: LiveData<LoadingState>
         get() = _loadingState
 
-    val allMusiciansList = appRepository.allMusiciansList
+    val allMusiciansList = appRepository.allMusicians
 
     init {
         fetchData()
@@ -25,7 +25,7 @@ class MusiciansFragmentViewModel(private val appRepository: AppRepository) : Vie
         viewModelScope.launch {
             try {
                 _loadingState.value = LoadingState.LOADING
-                appRepository.refresh()
+                appRepository.refreshMainPage()
                 _loadingState.value = LoadingState.LOADED
             } catch (e: Exception) {
                 _loadingState.value = LoadingState.error(e.message)

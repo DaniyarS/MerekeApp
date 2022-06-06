@@ -1,19 +1,22 @@
 package dev.dslam.merekeapp.presentation.fragments.auth
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import dev.dslam.merekeapp.R
+import dev.dslam.merekeapp.FullScreenFragment
+import dev.dslam.merekeapp.databinding.FragmentSignInBinding
 
-class SignInFragment : Fragment() {
+class SignInFragment : FullScreenFragment() {
+
+    private var _binding: FragmentSignInBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
+    ): View {
+        _binding = FragmentSignInBinding.inflate(inflater)
+        return binding.root
     }
 }

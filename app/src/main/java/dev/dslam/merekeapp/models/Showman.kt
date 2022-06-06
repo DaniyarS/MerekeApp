@@ -11,5 +11,6 @@ data class Showman(
     override val name: String,
     override val description: String,
     override val images: List<Image>,
-    override val isActive: Boolean
-) : Person(id, name, description, images, isActive), Parcelable
+    override val isActive: Boolean,
+    override val categoryId: String
+) : Person(id, name, description, images, isActive, categoryId), Parcelable

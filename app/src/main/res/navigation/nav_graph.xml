@@ -27,6 +27,25 @@
     </fragment>
 
     <fragment
+        android:id="@+id/signInFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.auth.SignInFragment"
+        android:label="fragment_sign_in">
+
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@+id/signUpFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="dev.dslam.merekeapp.presentation.fragments.auth.SignUpFragment"
+        android:label="fragment_sign_up" />
+
+    <fragment
         android:id="@+id/catalogFragment"
         android:name="dev.dslam.merekeapp.presentation.fragments.mainMenu.CatalogFragment"
         android:label="fragment_catalog">

@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.dslam.merekeapp.databinding.ActivityMainBinding
+import dev.dslam.merekeapp.utils.Utils
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (Utils.isAuthorized(context = this)) this.navController.navigate(R.id.signInFragment)
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.containerFragment) as NavHostFragment

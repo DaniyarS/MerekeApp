@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import dev.dslam.merekeapp.databinding.FragmentMusiciansBinding
 import dev.dslam.merekeapp.models.Status
 import dev.dslam.merekeapp.presentation.adapters.catalogAdapters.PersonCatalogAdapter
-import dev.dslam.merekeapp.presentation.viewModels.DancersFragmentViewModel
 import dev.dslam.merekeapp.presentation.viewModels.MusiciansFragmentViewModel
 import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
 import dev.dslam.merekeapp.utils.dp
@@ -35,7 +34,7 @@ class MusiciansFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        observeDancers()
+        observeMusicians()
         viewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.RUNNING -> {
@@ -73,7 +72,7 @@ class MusiciansFragment : Fragment() {
         )
     }
 
-    private fun observeDancers() {
+    private fun observeMusicians() {
         viewModel.allMusiciansList.observe(viewLifecycleOwner) {
             if (!it.isNullOrEmpty()) {
                 musiciansAdapter.submitList(it)
