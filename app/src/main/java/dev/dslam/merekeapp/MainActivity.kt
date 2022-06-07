@@ -2,6 +2,7 @@ package dev.dslam.merekeapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -20,12 +21,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (Utils.isAuthorized(context = this)) this.navController.navigate(R.id.signInFragment)
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.containerFragment) as NavHostFragment
 
         this.navController = navHostFragment.navController
+
+        if (!Utils.isAuthorized(context = this)) this.navController.navigate(R.id.authActivity)
 
         bottomNavigation = findViewById(R.id.bottomNav)
         bottomNavigation.setupWithNavController(this.navController)

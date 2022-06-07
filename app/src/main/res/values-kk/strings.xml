@@ -42,4 +42,5 @@
     <string name="str_no_data_loaded">АҚпарат жуктелмеді</string>
     <string name="str_welcome_to_mereke_content">Армандаган тойынызды\nmereke-мен уйымдастырыныз!</string>
     <string name="str_sign_in">Кіру</string>
+    <string name="str_auth">тіркелу</string>
 </resources>

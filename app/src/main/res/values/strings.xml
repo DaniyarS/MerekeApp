@@ -48,5 +48,6 @@
     <string name="str_welcome_to_mereke">Добро пожаловать\nв Mereke!</string>
     <string name="str_welcome_to_mereke_content">Создайте праздник своей мечты\nвместе с Mereke!</string>
     <string name="str_sign_in">ВОЙТИ</string>
+    <string name="str_auth">зарегестрироваться</string>
 
 </resources>
