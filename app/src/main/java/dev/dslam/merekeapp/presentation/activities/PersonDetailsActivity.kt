@@ -1,7 +1,8 @@
 package dev.dslam.merekeapp.presentation.activities
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.navArgs
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.ActivityPersonDetailsBinding
@@ -32,6 +33,22 @@ class PersonDetailsActivity : AppCompatActivity() {
             backButton.setOnClickListener {
                 val activity = this@PersonDetailsActivity
                 activity.finish()
+            }
+
+            shareButton.setOnClickListener {
+                val sendIntent = Intent()
+                sendIntent.action = Intent.ACTION_SEND
+                sendIntent.putExtra(Intent.EXTRA_TEXT, person.toString())
+                sendIntent.type = "text/plain"
+                startActivity(sendIntent)
+            }
+
+            saveButton.setOnClickListener {
+
+            }
+
+            addToCartButton.setOnClickListener {
+
             }
 
             about.text = when(person) {

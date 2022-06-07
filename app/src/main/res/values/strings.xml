@@ -3,7 +3,7 @@
     <string name="str_home">Главная</string>
     <string name="str_catalog">Каталог</string>
     <string name="str_create">Создать</string>
-    <string name="str_cart">Корзина</string>
+    <string name="str_cart">Брони</string>
     <string name="str_profile">Профиль</string>
     <string name="str_search">Поиск…</string>
     <string name="str_view_all">См. все</string>
@@ -49,5 +49,12 @@
     <string name="str_welcome_to_mereke_content">Создайте праздник своей мечты\nвместе с Mereke!</string>
     <string name="str_sign_in">ВОЙТИ</string>
     <string name="str_auth">зарегестрироваться</string>
+    <string name="str_email">Адрес электронной почты</string>
+    <string name="str_password">Пароль</string>
+    <string name="str_registration">Регистрация</string>
+    <string name="str_alert">Введите адрес электронной почты, мы отправим вам письмо для подтверждения</string>
+    <string name="str_agreement">Продолжая, вы соглашаетесь со сбором, обработкой персональных данных и Пользовательским соглашением</string>
+    <string name="str_name">Данияр</string>
+    <string name="str_phone_number">+7 777 577 49 68</string>
 
 </resources>

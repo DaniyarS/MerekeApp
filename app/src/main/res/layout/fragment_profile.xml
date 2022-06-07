@@ -54,7 +54,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:text="Нурайым" />
+                    android:textStyle="bold"
+                    android:text="@string/str_name" />
 
                 <TextView
                     android:id="@+id/userPhoneTextView"
@@ -63,10 +64,11 @@
                     android:layout_below="@id/userNameTextView"
                     android:textColor="@color/white"
                     android:textSize="14sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/userNameTextView"
-                    tools:text="+7 777 577 49 62" />
+                    android:text="@string/str_phone_number" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

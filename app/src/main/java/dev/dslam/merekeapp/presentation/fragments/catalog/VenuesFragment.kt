@@ -5,10 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import dev.dslam.merekeapp.databinding.FragmentVenuesBinding
+import dev.dslam.merekeapp.models.Person
+import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.models.Status
 import dev.dslam.merekeapp.presentation.adapters.catalogAdapters.VenueCatalogAdapter
 import dev.dslam.merekeapp.presentation.viewModels.VenuesFragmentViewModel
@@ -40,17 +41,12 @@ class VenuesFragment : Fragment() {
         viewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.RUNNING -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
-                        .show()
                     binding.progressBar.isVisible = true
                 }
                 Status.SUCCESS -> {
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
-                        .show()
                     binding.progressBar.isVisible = false
                 }
                 Status.FAILED -> {
-                    Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
                     binding.progressBar.isVisible = false
                 }
             }
@@ -70,10 +66,10 @@ class VenuesFragment : Fragment() {
     }
 
     private fun observeVenues() {
-        viewModel.allVenueList.observe(viewLifecycleOwner, {
+        viewModel.allVenueList.observe(viewLifecycleOwner) {
             if (!it.isNullOrEmpty()) {
                 venuesAdapter.submitList(it)
             }
-        })
+        }
     }
 }

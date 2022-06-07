@@ -18,8 +18,6 @@ import dev.dslam.merekeapp.models.adaptermodels.CategoryItem
 import dev.dslam.merekeapp.models.adaptermodels.VenueItem
 import dev.dslam.merekeapp.presentation.adapters.composeAdapter.CompositeAdapter
 import dev.dslam.merekeapp.databinding.FragmentHomeBinding
-import dev.dslam.merekeapp.models.Showman
-import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.presentation.viewModels.HomeFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -69,13 +67,13 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         compositeAdapter.submitList(list)
 
         homeFragmentViewModel.loadingState.observe(viewLifecycleOwner) {
-            when (it.status) {
-                Status.FAILED -> Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
-                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
-                    .show()
-                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
-                    .show()
-            }
+//            when (it.status) {
+//                Status.FAILED -> Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
+//                Status.RUNNING -> Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
+//                    .show()
+//                Status.SUCCESS -> Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
+//                    .show()
+//            }
         }
     }
 
@@ -93,16 +91,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             }
         }
 
-        homeFragmentViewModel.allPersonList.observe(viewLifecycleOwner) { personList ->
-            if (personList?.any { it is Singer } == true) {
-                val categoryItem = CategoryItem(Category(1, "Новые певцы"))
+        homeFragmentViewModel.allPersonList.observe(viewLifecycleOwner) { singerList ->
+            if (singerList != null) {
+                val categoryItem = CategoryItem(Category(1, "Новые артисты"))
                 list.add(categoryItem)
-                list.add(SingerItem(personList))
-            }
-            if (personList?.any { it is Showman } == true) {
-                val categoryItem = CategoryItem(Category(2, "Новые шоумены"))
-                list.add(categoryItem)
-                list.add(SingerItem(personList))
+                list.add(SingerItem(singerList))
             }
         }
     }

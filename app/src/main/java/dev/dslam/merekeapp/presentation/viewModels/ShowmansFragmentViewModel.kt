@@ -25,7 +25,7 @@ class ShowmansFragmentViewModel(private val appRepository: AppRepository) : View
         viewModelScope.launch {
             try {
                 _loadingState.value = LoadingState.LOADING
-                appRepository.refreshMainPage()
+                appRepository.refresh()
                 _loadingState.value = LoadingState.LOADED
             } catch (e: Exception) {
                 _loadingState.value = LoadingState.error(e.message)

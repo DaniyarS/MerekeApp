@@ -9,7 +9,6 @@ data class Dancers(
     override val id: Int,
     override val name: String,
     override val description: String,
-    override val images: List<Image>,
-    override val isActive: Boolean,
-    override val categoryId: String
-) : Person(id, name, description, images, isActive, categoryId), Parcelable
+    override val rating: Float,
+    override val images: List<Image>
+) : Person(id, name, description, rating, images), Parcelable

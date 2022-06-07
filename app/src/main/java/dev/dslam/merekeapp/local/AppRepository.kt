@@ -1,30 +1,38 @@
 package dev.dslam.merekeapp.local
 
-import android.util.Log
+import dev.dslam.merekeapp.models.TokenResponse
+import dev.dslam.merekeapp.models.User
 import dev.dslam.merekeapp.network.MerekeApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.Response
 
 class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: MerekeDao) {
 
-    val allPersonList = merekeDao.getAllPerson()
+    val newVenueList = merekeDao.getNewVenues()
+    val newSingerList = merekeDao.getNewSingers()
+    val allSingers = merekeDao.getAllSingers()
+    val allShowmans = merekeDao.getAllShowmans()
+    //val allPersonList = merekeDao.getAllPerson()
     val allVenues = merekeDao.getAllVenues()
-    val allSingers = merekeDao.getPersonByCategory("1")
-    val allDancer = merekeDao.getPersonByCategory("2")
-    val allMusicians = merekeDao.getPersonByCategory("4")
-    val allShowmans = merekeDao.getPersonByCategory("5")
+    val allDancersList = merekeDao.getAllDancers()
+    val allMusiciansList = merekeDao.getAllMusicians()
 
-    suspend fun refreshMainPage() {
+    suspend fun refresh() {
         withContext(Dispatchers.IO) {
-            val personList =  merekeApi.getAllPersons()
-            personList.body()?.let { merekeDao.addPersonList(personList = it) }
-
-            Log.d("DANIK", "DANIK" + personList.body().toString())
-
+            val personList = merekeApi.getAllPersons()
             val venueList = merekeApi.getAllRestaurants()
-            venueList.body()?.let { merekeDao.addVenues(venues = it) }
 
-            Log.d("DANIK", "DANIK" + venueList.body().toString())
+            //personList.body()?.let { merekeDao.addPersonList(personList = it) }
+            //venueList.body()?.let { merekeDao.addVenues(venues = it) }
         }
     }
+
+    suspend fun signIn(email: String, password: String): Response<TokenResponse> {
+        val result = withContext(Dispatchers.IO) {
+            merekeApi.userSign(User(email = email, password = password))
+        }
+        return result
+    }
+
 }

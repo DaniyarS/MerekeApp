@@ -6,7 +6,7 @@ import dev.dslam.merekeapp.models.Category
 data class CategoryItem(
     val category: Category
 ) : DelegateAdapterItem {
-    override fun id(): Any = category.id
+    override fun id(): Any = category.id.toString() + category.name
 
-    override fun content(): Any = category.name
+    override fun content(): Any = category
 }

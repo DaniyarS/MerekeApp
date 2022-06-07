@@ -5,10 +5,10 @@ import dev.dslam.merekeapp.models.Person
 
 class PersonDiffUtilCallback : DiffUtil.ItemCallback<Person>() {
     override fun areItemsTheSame(oldItem: Person, newItem: Person): Boolean {
-        return oldItem.id == newItem.id
+        return true //oldItem.id.toString() + oldItem.description == newItem.id.toString() + newItem.description
     }
 
     override fun areContentsTheSame(oldItem: Person, newItem: Person): Boolean {
-        return areContentsTheSame(oldItem, newItem)
+        return true //areContentsTheSame(oldItem, newItem)
     }
 }

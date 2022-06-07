@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MerekeApp"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.fragments.auth.AuthActivity"
+            android:name=".presentation.activities.AuthActivity"
             android:exported="true" />
         <activity
             android:name=".SplashActivity"

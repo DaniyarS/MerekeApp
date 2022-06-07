@@ -25,7 +25,7 @@ class SingersFragmentViewModel(private val appRepository: AppRepository) : ViewM
         viewModelScope.launch {
             try {
                 _loadingState.value = LoadingState.LOADING
-                appRepository.refreshMainPage()
+                appRepository.refresh()
                 _loadingState.value = LoadingState.LOADED
             } catch (e: Exception) {
                 _loadingState.value = LoadingState.error(e.message)

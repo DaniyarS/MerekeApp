@@ -28,20 +28,8 @@
 
     <activity
         android:id="@+id/authActivity"
-        android:name="dev.dslam.merekeapp.presentation.fragments.auth.AuthActivity"
-        android:label="activity_auth">
-
-    </activity>
-
-    <fragment
-        android:id="@+id/signInFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.auth.SignInFragment"
-        android:label="fragment_sign_in"/>
-
-    <fragment
-        android:id="@+id/signUpFragment"
-        android:name="dev.dslam.merekeapp.presentation.fragments.auth.SignUpFragment"
-        android:label="fragment_sign_up" />
+        android:name="dev.dslam.merekeapp.presentation.activities.AuthActivity"
+        android:label="activity_auth"/>
 
     <fragment
         android:id="@+id/catalogFragment"

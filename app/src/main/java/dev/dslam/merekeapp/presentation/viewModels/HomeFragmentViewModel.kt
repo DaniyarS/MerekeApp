@@ -16,7 +16,7 @@ class HomeFragmentViewModel(private val appRepository: AppRepository) : ViewMode
         get() = _loadingState
 
     val allVenueList = appRepository.allVenues
-    val allPersonList = appRepository.allPersonList
+    val allPersonList = appRepository.allShowmans
 
     init {
         fetchData()
@@ -26,7 +26,7 @@ class HomeFragmentViewModel(private val appRepository: AppRepository) : ViewMode
         viewModelScope.launch {
             try {
                 _loadingState.value = LoadingState.LOADING
-                appRepository.refreshMainPage()
+                appRepository.refresh()
                 _loadingState.value = LoadingState.LOADED
             } catch (e: Exception) {
                 _loadingState.value = LoadingState.error(e.message)

@@ -16,9 +16,10 @@ open class Person(
     open val name: String,
     open val description: String,
     @TypeConverters(ImageToString::class)
-    open val images: List<Image>,
-    @SerializedName("is_active")
-    open val isActive: Boolean,
-    @SerializedName("category_id")
-    open val categoryId: String
-) : Parcelable
+    open val rating: Float,
+    open val images: List<Image>
+) : Parcelable {
+    override fun toString(): String {
+        return name + description
+    }
+}

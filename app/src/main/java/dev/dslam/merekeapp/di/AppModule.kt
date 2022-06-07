@@ -1,6 +1,8 @@
 package dev.dslam.merekeapp.di
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.room.Room
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -10,6 +12,7 @@ import dev.dslam.merekeapp.local.AppRepository
 import dev.dslam.merekeapp.local.MerekeDao
 import dev.dslam.merekeapp.network.MerekeApi
 import dev.dslam.merekeapp.presentation.viewModels.*
+import dev.dslam.merekeapp.utils.Constants
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
@@ -21,6 +24,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val BASE_URL = "https://mereke.herokuapp.com/"
 
 val viewModelModule = module {
+
+    fun provideSharedPref(app: Application): SharedPreferences {
+        return app.applicationContext.getSharedPreferences(
+            Constants.AUTH,
+            Context.MODE_PRIVATE
+        )
+    }
+
     viewModel{
         HomeFragmentViewModel(appRepository = get())
     }
@@ -41,6 +52,9 @@ val viewModelModule = module {
     }
     viewModel {
         ProfileFragmentViewModel(appRepository = get())
+    }
+    viewModel {
+        SignInViewModel(appRepository = get(), sharedPref = provideSharedPref(androidApplication()))
     }
 }
 

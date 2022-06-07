@@ -6,7 +6,7 @@ import dev.dslam.merekeapp.models.Venue
 data class VenueItem(
     val venues: List<Venue>
 ) : DelegateAdapterItem {
-    override fun id(): Any = venues
+    override fun id(): Any = venues.size
 
     override fun content(): Any = venues
 }

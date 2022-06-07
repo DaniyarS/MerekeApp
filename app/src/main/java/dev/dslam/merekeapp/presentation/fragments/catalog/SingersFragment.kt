@@ -40,17 +40,12 @@ class SingersFragment : Fragment() {
         viewModel.loadingState.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.RUNNING -> {
-                    Toast.makeText(requireContext(), "Loading", Toast.LENGTH_SHORT)
-                        .show()
                     binding.progressBar.isVisible = true
                 }
                 Status.SUCCESS -> {
-                    Toast.makeText(requireContext(), "Success", Toast.LENGTH_SHORT)
-                        .show()
                     binding.progressBar.isVisible = false
                 }
                 Status.FAILED -> {
-                    Toast.makeText(requireContext(), it.msg, Toast.LENGTH_SHORT).show()
                     binding.progressBar.isVisible = false
                 }
             }

@@ -4,5 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class TokenResponse(
     @SerializedName("access")
-    val token: String
+    val token: String,
+    @Transient
+    val error: String?
 )
