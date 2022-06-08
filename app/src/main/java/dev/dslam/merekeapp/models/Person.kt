@@ -13,10 +13,15 @@ import kotlinx.parcelize.Parcelize
 open class Person(
     @PrimaryKey
     open val id: Int,
+    @SerializedName("name")
     open val name: String,
+    @SerializedName("description")
     open val description: String,
     @TypeConverters(ImageToString::class)
+    @SerializedName("rating")
     open val rating: Float,
+    @SerializedName("images")
+    @TypeConverters(ImageToString::class)
     open val images: List<Image>
 ) : Parcelable {
     override fun toString(): String {

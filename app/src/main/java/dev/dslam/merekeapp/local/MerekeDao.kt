@@ -3,6 +3,9 @@ package dev.dslam.merekeapp.local
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import dev.dslam.merekeapp.models.*
 
 @Dao
@@ -25,6 +28,15 @@ interface MerekeDao {
 //
 //    @Insert(onConflict = OnConflictStrategy.REPLACE)
 //    fun addVenues(venues: List<Venue>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertPerson(person: Person)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertOrder(order: Order)
+
+    @Query("SELECT * FROM orders")
+    fun getOrders(): List<Order>
 
     fun getNewVenues(): LiveData<List<Venue>> {
         val newVenueList = MutableLiveData<List<Venue>>()

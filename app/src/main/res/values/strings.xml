@@ -56,5 +56,14 @@
     <string name="str_agreement">Продолжая, вы соглашаетесь со сбором, обработкой персональных данных и Пользовательским соглашением</string>
     <string name="str_name">Данияр</string>
     <string name="str_phone_number">+7 777 577 49 68</string>
+    <string name="str_book">Забронировать</string>
+    <string name="str_choose_date">Выберите день банкета</string>
+    <string name="str_book_time">Время банкета</string>
+    <string name="str_my_books">Мои брони</string>
+    <string name="str_empty_cart">Ваш список пуст</string>
+    <string name="str_go_to_catalog">Перейти в каталог</string>
+    <string name="str_book_number">Бронь №</string>
+    <string name="str_status">в ожидании</string>
+    <string name="str_mng_name">Айнур Ж.</string>
 
 </resources>

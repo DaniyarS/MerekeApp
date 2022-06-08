@@ -15,6 +15,9 @@
         android:theme="@style/Theme.MerekeApp"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".presentation.activities.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activities.AuthActivity"
             android:exported="true" />
         <activity

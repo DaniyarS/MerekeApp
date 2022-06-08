@@ -56,6 +56,15 @@ val viewModelModule = module {
     viewModel {
         SignInViewModel(appRepository = get(), sharedPref = provideSharedPref(androidApplication()))
     }
+    viewModel {
+        PersonViewModel(appRepository = get())
+    }
+    viewModel {
+        OrderViewModel(appRepository = get())
+    }
+    viewModel {
+        CartViewModel(appRepository = get())
+    }
 }
 
 val apiModule = module {

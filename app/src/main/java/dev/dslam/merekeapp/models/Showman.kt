@@ -4,7 +4,6 @@ import android.os.Parcelable
 import androidx.room.Entity
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "showmans")
 @Parcelize
 data class Showman(
     override val id: Int,

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/bookNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/str_book_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/str_status"
+        android:textColor="@color/black_green"
+        app:layout_constraintBottom_toBottomOf="@+id/bookNumber"
+        app:layout_constraintEnd_toEndOf="@+id/producContainer"
+        app:layout_constraintTop_toTopOf="@+id/bookNumber" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/producContainer"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bookNumber"
+        app:layout_constraintTop_toBottomOf="@+id/bookNumber">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/productImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/orderNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/productImageView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rock Crystal" />
+
+            <TextView
+                android:id="@+id/ordersDescription"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/roboto_regular"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/orderNameTextView"
+                app:layout_constraintTop_toBottomOf="@+id/orderNameTextView"
+                tools:text="пр. Гагарина, 2, уг. ул. Толе би" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/banketDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="День банкета"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/producContainer"
+        app:layout_constraintTop_toBottomOf="@+id/producContainer" />
+
+    <TextView
+        android:id="@+id/banketTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Время банкета"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/producContainer"
+        app:layout_constraintTop_toBottomOf="@+id/banketDay" />
+
+    <TextView
+        android:id="@+id/manager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Менеджер"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/producContainer"
+        app:layout_constraintTop_toBottomOf="@+id/banketTime" />
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Номер телефона"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/producContainer"
+        app:layout_constraintTop_toBottomOf="@+id/manager" />
+
+    <TextView
+        android:id="@+id/banketDayData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/producContainer"
+        app:layout_constraintTop_toBottomOf="@+id/producContainer" />
+
+    <TextView
+        android:id="@+id/banketTimeData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/banketDayData"
+        app:layout_constraintTop_toBottomOf="@+id/banketDay" />
+
+    <TextView
+        android:id="@+id/managerData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/str_mng_name"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/banketTimeData"
+        app:layout_constraintTop_toBottomOf="@+id/banketTime" />
+
+    <TextView
+        android:id="@+id/phoneNumberData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/managerData"
+        app:layout_constraintTop_toBottomOf="@+id/manager" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

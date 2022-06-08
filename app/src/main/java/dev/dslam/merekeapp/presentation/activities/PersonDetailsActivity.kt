@@ -2,17 +2,25 @@ package dev.dslam.merekeapp.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
+import androidx.navigation.ActivityNavigator
 import androidx.navigation.navArgs
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.ActivityPersonDetailsBinding
 import dev.dslam.merekeapp.models.Showman
 import dev.dslam.merekeapp.models.Singer
 import dev.dslam.merekeapp.presentation.adapters.viewPagers.ViewPagerAdapter
+import dev.dslam.merekeapp.presentation.viewModels.PersonAction
+import dev.dslam.merekeapp.presentation.viewModels.PersonState
+import dev.dslam.merekeapp.presentation.viewModels.PersonViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class PersonDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPersonDetailsBinding
+    private val personViewModel: PersonViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,23 +52,49 @@ class PersonDetailsActivity : AppCompatActivity() {
             }
 
             saveButton.setOnClickListener {
-
+                personViewModel.dispatch(PersonAction.SavePerson(person))
             }
 
             addToCartButton.setOnClickListener {
 
+                val intent = Intent(this@PersonDetailsActivity, OrderActivity::class.java)
+                intent.putExtra("PERSON", person)
+
+                val nav = ActivityNavigator(this@PersonDetailsActivity)
+                    .createDestination()
+                    .setIntent(intent)
+
+                ActivityNavigator(this@PersonDetailsActivity).navigate(
+                    nav,
+                    null,
+                    null,
+                    null
+                )
             }
 
-            about.text = when(person) {
+            about.text = when (person) {
                 is Singer -> getString(R.string.str_about_artist)
                 is Showman -> getString(R.string.str_about_showman)
                 else -> getString(R.string.str_about)
             }
         }
 
-        when(person) {
+        when (person) {
             is Singer -> {
                 binding.about.text = getString(R.string.str_about_singer)
+            }
+        }
+
+        configureObservers()
+    }
+
+    private fun configureObservers() {
+        personViewModel.state.observe(this) {
+            when (it) {
+                is PersonState.PersonSaved -> {
+                    binding.saveButton.setImageResource(R.drawable.ic_fav_pressed)
+                    Toast.makeText(this, "Сохранили в Избранные", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }

@@ -1,5 +1,7 @@
 package dev.dslam.merekeapp.local
 
+import dev.dslam.merekeapp.models.Order
+import dev.dslam.merekeapp.models.Person
 import dev.dslam.merekeapp.models.TokenResponse
 import dev.dslam.merekeapp.models.User
 import dev.dslam.merekeapp.network.MerekeApi
@@ -35,4 +37,15 @@ class AppRepository(private val merekeApi: MerekeApi, private val merekeDao: Mer
         return result
     }
 
+    fun savePerson(person: Person) {
+        merekeDao.insertPerson(person)
+    }
+
+    fun bookOrder(order: Order) {
+        merekeDao.insertOrder(order)
+    }
+
+    fun getOrders(): List<Order> {
+        return merekeDao.getOrders()
+    }
 }
