@@ -12,7 +12,7 @@ class UserMenuListAdapter : ListAdapter<UserMenu, UserMenuListAdapter.UserMenuVi
     UserMenuDiffUtilCallback()
 ) {
 
-    val menuClick: (() -> Unit)? = null
+    var menuClick: (() -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserMenuViewHolder =
         UserMenuViewHolder(

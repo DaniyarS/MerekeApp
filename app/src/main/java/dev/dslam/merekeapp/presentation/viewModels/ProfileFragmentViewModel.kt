@@ -39,8 +39,8 @@ class ProfileFragmentViewModel(private val appRepository: AppRepository) : ViewM
             add(0, UserMenu(R.drawable.ic_user, R.string.str_user_private_data))
             add(1, UserMenu(R.drawable.ic_favorite_star, R.string.str_user_favorites))
             add(2, UserMenu(R.drawable.ic_phone, R.string.str_user_techsupport))
-            add(4, UserMenu(R.drawable.ic_faq, R.string.str_user_faq))
-            add(5, UserMenu(R.drawable.ic_circled_info, R.string.str_user_about_app))
+            add(3, UserMenu(R.drawable.ic_faq, R.string.str_user_faq))
+            add(4, UserMenu(R.drawable.ic_circled_info, R.string.str_user_about_app))
         }
 
         return userMenuList

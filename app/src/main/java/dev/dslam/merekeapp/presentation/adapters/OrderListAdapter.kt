@@ -13,7 +13,7 @@ class OrderListAdapter : ListAdapter<Order, OrderListAdapter.OrderViewHolder>(
     OrderDiffUtilCallback()
 ) {
 
-    val productClicked: ((Order) -> Unit)? = null
+    var productClicked: ((Order) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder =
         OrderViewHolder(

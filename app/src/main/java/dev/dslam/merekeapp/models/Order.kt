@@ -12,5 +12,5 @@ data class Order(
     val image: String,
     val date: String,
     val time: String,
-    val phoneNumber: String = "87079797167"
+    val phoneNumber: String = "+77079797167"
 )

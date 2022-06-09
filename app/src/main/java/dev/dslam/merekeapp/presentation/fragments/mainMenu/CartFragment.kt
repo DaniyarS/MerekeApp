@@ -1,25 +1,23 @@
 package dev.dslam.merekeapp.presentation.fragments.mainMenu
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavOptions
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.dslam.merekeapp.R
 import dev.dslam.merekeapp.databinding.FragmentCartBinding
-import dev.dslam.merekeapp.models.adaptermodels.SingerItem
 import dev.dslam.merekeapp.presentation.adapters.OrderListAdapter
-import dev.dslam.merekeapp.presentation.adapters.PersonListAdapter
 import dev.dslam.merekeapp.presentation.viewModels.CartAction
 import dev.dslam.merekeapp.presentation.viewModels.CartState
 import dev.dslam.merekeapp.presentation.viewModels.CartViewModel
-import dev.dslam.merekeapp.utils.EqualSpacingItemDecoration
-import dev.dslam.merekeapp.utils.dp
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CartFragment : Fragment() {
@@ -46,6 +44,22 @@ class CartFragment : Fragment() {
 
         binding.backButton.setOnClickListener {
             this.findNavController().navigate(R.id.catalogFragment, null, null)
+        }
+
+        orderListAdapter.productClicked = { order ->
+            try {
+                val text = "Здравствуйте, меня зовут Данияр. Обращаюсь по объявлению: ${order.name + order.description.substring(0, 10)}..."
+
+                val toNumber = order.phoneNumber
+
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = Uri.parse("http://api.whatsapp.com/send?phone=$toNumber&text=$text")
+                startActivity(intent)
+
+            } catch (e: PackageManager.NameNotFoundException) {
+                Toast.makeText(requireContext(), "WhatsApp не установлен", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 
